@@ -14,43 +14,40 @@ import {
 } from '../styles/layout.module.sass'
 export default ({ data }) => {
     const siteMetadata = data.site.siteMetadata
-    const chapters = data.allMarkdownRemark.edges.map(({ node }) => ({
-        slug: node.fields.slug,
-        title: node.frontmatter.title,
-        description: node.frontmatter.description,
-    }))
     return (
         <Layout isHome>
-          <h1 className={classes.subtitle}>Data Science South</h1>
+          <h1 className={classes.subtitle}><Link to="/">Data Science South</Link></h1>
             <section>
-              <nav>
-                <ul className={classes.navLinks}>
-                  <li className={classes.navLinkItem}>
-                    <Link to="/">
-                      Home
-                    </Link>
-                  </li>
-                  <li className={classes.navLinkItem}>
-                    <Link to="/courses">
-                      Courses
-                    </Link>
-                  </li>
-                </ul>
-              </nav>
-            </section>
-            <section>
+
+                <div className={classes.introduction}>
+                <p>
+      I'm passionate about data science education, supporting daha science education, Passion project - dream / goal, Looking for partner, Think of it as an outlet  for my passion for teachingf & learning, that may be a bigger thing one ady
+                </p>
+                </div>
+
                 <h1 className={classes.subtitle}> Courses </h1>
                 <div className={classes.introduction}>
                 <p>
-                  Our first offering - practical data science courses.
+                  Short, practical data science courses.
                 </p>
                 <p><Link to="/courses/data-analysis">Data Analysis Course</Link></p>
                 <p><Link to="/courses/datetimes">Datetimes Course</Link></p>
                 </div>
             </section>
+            <section>
+                <h1 className={classes.subtitle}> Blog Posts </h1>
+                <div className={classes.introduction}>
+                <p><Link to="/blog/make">Make</Link></p>
+                </div>
+            </section>
         </Layout>
     )
 }
+    // const chapters = data.allMarkdownRemark.edges.map(({ node }) => ({
+    //     slug: node.fields.slug,
+    //     title: node.frontmatter.title,
+    //     description: node.frontmatter.description,
+    // }))
 
             // {chapters.map(({ slug, title, description }) => (
             //     <section key={slug} className={classes.chapter}>
