@@ -12,8 +12,17 @@ import {
   navLinkItem,
   navLinkText
 } from '../styles/layout.module.sass'
+
+import PostLink from "../components/post-link"
+
 export default ({ data }) => {
     const siteMetadata = data.site.siteMetadata
+
+    const edges = data.allMarkdownRemark.edges
+
+    const Posts = edges
+      .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+
     return (
         <Layout isHome>
           <h1 className={classes.subtitle}><Link to="/">Data Science South</Link></h1>
@@ -35,10 +44,10 @@ export default ({ data }) => {
                 </div>
             </section>
             <section>
-                <h1 className={classes.subtitle}> Blog Posts </h1>
-                <div className={classes.introduction}>
-                <p><Link to="/blog/make">Make</Link></p>
-                </div>
+              <h1 className={classes.subtitle}> Blog Posts </h1>
+              <div className={classes.introduction}>
+                {Posts}
+              </div>
             </section>
         </Layout>
     )
@@ -73,16 +82,14 @@ export const pageQuery = graphql`
         }
         allMarkdownRemark(
             sort: { fields: [frontmatter___title], order: ASC }
-            filter: { frontmatter: { type: { eq: "chapter" } } }
+            filter: { frontmatter: { type: { eq: "post" } } }
         ) {
             edges {
                 node {
-                    fields {
-                        slug
-                    }
                     frontmatter {
                         title
                         description
+                        slug
                     }
                 }
             }

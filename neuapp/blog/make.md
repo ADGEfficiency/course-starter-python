@@ -2,8 +2,8 @@
 title: Make for Data Science
 description: Make your data science workflows better with this classic UNIX tool.
 date: 2021-01-20
-featured_image: /images/photos/gokyo-wide.jpg
 slug: "/blog/make"
+type: post
 
 ---
 
@@ -20,7 +20,7 @@ We start where we will end - at the final `Makefile` we will develop together in
 
 By the end you'll understand how it all works (don't worry if you don't right now!).
 
-```make
+```makefile
 # Makefile
 
 all: ./data/clean.json
@@ -39,7 +39,7 @@ all: ./data/clean.json
 
 Shell commands start with a `$`, with shell output shown below unindented.
 
-```bash
+```sh-session
 $ shell-command
 printed output
 ```
@@ -65,7 +65,7 @@ A `Makefile` has three components:
 3. workflow - the sequence of steps needed to make your target.
 
 
-```make
+```makefile
 target: dependencies
 <TAB>workflow
 ```
@@ -74,7 +74,7 @@ target: dependencies
 
 Take the very simple `Makefile` below, that creates an empty `data.html` file:
 
-```make
+```makefile
 # Makefile
 
 data.html:
@@ -84,7 +84,7 @@ data.html:
 
 Running `make` without a target will run the first target - in our case the only target, `data.html`:
 
-```bash
+```sh-session
 $ make
 making data.html
 touch data.html

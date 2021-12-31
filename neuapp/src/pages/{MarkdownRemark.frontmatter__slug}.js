@@ -12,7 +12,7 @@ const BlogPost = ({ data }) => {
       <h1 className={classes.subtitle}><Link to="/">Data Science South</Link></h1>
       <section>
         <div className={classes.introduction}>
-        <h1>{frontmatter.title}</h1>
+        <h1 className={classes.subtitle}>{frontmatter.title}</h1>
         <div
           className="blog-post-content"
           dangerouslySetInnerHTML={{ __html: html }}
