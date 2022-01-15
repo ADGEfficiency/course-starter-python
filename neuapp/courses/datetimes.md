@@ -1,18 +1,18 @@
 ---
 courseId: datetimes
 title: 'Working with Datetimes in Python'
-description: TODO
+description: Time to learn about datetimes in Python.
 type: course
 
 ---
-
-Research
 
 
 I googled
 - datetimes in Python
 - working with datetimes timezones
+- timezones python programming
 
+TODO rework these googles into the content
 
 Real python - https://realpython.com/python-datetime/
 

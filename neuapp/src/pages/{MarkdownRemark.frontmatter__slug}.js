@@ -3,13 +3,14 @@ import { graphql } from "gatsby"
 import { Link } from '../components/link'
 import Layout from '../components/layout'
 import classes from '../styles/index.module.sass'
+import Logo from '../../static/logo-neu.svg'
 
 const BlogPost = ({ data }) => {
   const { markdownRemark } = data // data.markdownRemark holds your post data
   const { frontmatter, html } = markdownRemark
   return (
     <Layout isHome >
-      <h1 className={classes.subtitle}><Link to="/">Data Science South</Link></h1>
+      <Logo className={classes.logo} />
       <section>
         <div className={classes.introduction}>
         <h1 className={classes.subtitle}>{frontmatter.title}</h1>

@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../../components/layout'
 import { Link } from '../../components/link'
-import Logo from '../../../static/logo.svg'
+import Logo from '../../../static/logo-neu.svg'
 
 import classes from '../../styles/index.module.sass'
 
@@ -21,10 +21,9 @@ export default ({ data }) => {
     }))
     return (
         <Layout isHome>
-            <Logo className={classes.logo} aria-label={siteMetadata.title} />
+          <Logo className={classes.logo} aria-label={siteMetadata.title} />
 
             <section>
-                <h1 className={classes.subtitle}> {courseMetadata.title} </h1>
                 <div className={classes.introduction}>
                 <p>{courseMetadata.description}</p>
                 </div>

@@ -3,7 +3,7 @@ import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import { Link } from '../components/link'
-import Logo from '../../static/logo.svg'
+import Logo from '../../static/logo-neu.svg'
 
 import classes from '../styles/index.module.sass'
 import {
@@ -21,26 +21,27 @@ export default ({ data }) => {
     const edges = data.allMarkdownRemark.edges
 
     const Posts = edges
-      .map(edge => <PostLink key={edge.node.id} post={edge.node} />)
+      .map(edge => <p><Link to={edge.node.frontmatter.slug}>{edge.node.frontmatter.title}</Link></p>)
 
     return (
         <Layout isHome>
-          <h1 className={classes.subtitle}><Link to="/">Data Science South</Link></h1>
+          <Logo className={classes.logo} aria-label={siteMetadata.title} />
             <section>
-
                 <div className={classes.introduction}>
                 <p>
-      I'm passionate about data science education, supporting daha science education, Passion project - dream / goal, Looking for partner, Think of it as an outlet  for my passion for teachingf & learning, that may be a bigger thing one ady
+                  Data Science South is an outlet & placeholder for a data professional who is passionate about supporting data science education.
+                </p>
+                <p>
+                  I have high hopes for what Data Science South will be in the future - a world-class, indie bootcamp based in New Zealatd.
+                </p>
+                <p>
+                  If you want to follow as we create more courses and blog posts - follow us on LinkedIn.
                 </p>
                 </div>
 
                 <h1 className={classes.subtitle}> Courses </h1>
                 <div className={classes.introduction}>
-                <p>
-                  Short, practical data science courses.
-                </p>
-                <p><Link to="/courses/data-analysis">Data Analysis Course</Link></p>
-                <p><Link to="/courses/datetimes">Datetimes Course</Link></p>
+                <p><Link to="/courses/datetimes">Datetimes in Python</Link> - learn how to work with datetimes in Python.</p>
                 </div>
             </section>
             <section>
