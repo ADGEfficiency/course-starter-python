@@ -9,11 +9,11 @@ type: post
 
 **Good developers type less**.  
 
-Typing less reduces the toll that working at a computer takes on your body - reducing typing means less pain in your hands and wrists.
+Computer work takes a toll on your body - reducing typing means less pain in your back, hands and wrists.
 
-Typing less allows developers to work more accurately, making less mistakes by accessing previous commands from history rather than retyping each command.
+Typing less allows developers to work more accurately and make less mistakes. 
 
-For a developer, making proper use of your shell (commonly Bash) is one opportunity to type less.  
+For a developer, making proper use of your shell (commonly Bash) is one opportunity to type less.  For example, by accessing previous commands from history rather than retyping each command, a developer can avoid both retyping and the potential mistype of retyping a command.
 
 **That's what this post is about - three Bash tricks that will let you type less**:
 

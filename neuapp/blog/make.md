@@ -62,7 +62,7 @@ The shell code blocks were run with `zsh` on `MacOS`, and are `bash` compatible.
 A `Makefile` has three components:
 
 1. targets - files you are trying to make or a `PHONY` target,
-2. dependencies - targets that need to be run before,
+2. dependencies - targets that need to be run before a target,
 3. workflow - the sequence of steps needed to make your target.
 
 
@@ -71,11 +71,9 @@ target: dependencies
 <TAB>workflow
 ```
 
-Much of the power of a `Makefile` comes from being able to make targets depend on other targets.  
+Much of the power of a `Makefile` comes from being able to make targets depend on other targets. 
 
-The simple `Makefile` below shows a simple pipeline with one dependency.
-
-Both `begin` and `end` are `PHONY` *targets* - with `end` *depending* on `begin`:
+The simple `Makefile` below shows a simple pipeline with one dependency - `end` *depends on* `begin`. Both `begin` and `end` are `PHONY` targets - meaning they do not create a file:
 
 ```makefile
 # Makefile
@@ -89,7 +87,7 @@ end: begin
   echo "Der Anfang is das Ende"
 ```
 
-A `Makefile` can represent & manage complex data pipelines - the *workflows* of targets can do anything you can do with a shell, making workflows arbitrarily powerful.
+A `Makefile` can represent & manage complex data pipelines.  A single workflow can do anything you can do with a shell, making even a single workflow arbitrarily powerful.
 
 
 ## Running a Makefile
@@ -129,9 +127,9 @@ making data.html
 touch data.html
 ```
 
-Above we have demonstrated one useful feature of `make` - intelligent re-execution of pipelines.
+Above we have demonstrated one useful feature of `make` - **intelligent re-execution of pipelines**.
 
-Under the hood, `make` is able to use the timestamps on files to understand what to run (or not run).
+Under the hood, `make` makes use of the timestamps on files to understand what to run (or not run).
 
 Before we get too carried away, lets set our motivation for using `make` in a data project.
 
@@ -192,6 +190,8 @@ We will build a data pipeline - using Python scripts as mock for real data tasks
 </center>
 <br />
 
+Our ingestion step creates raw data, and our cleaning step creates clean data.
+
 We can look at the same pipeline in terms of the dependency between the data artifacts & source code of our pipeline - with dependency flowing from right to left:
 
 <center>
@@ -201,16 +201,17 @@ We can look at the same pipeline in terms of the dependency between the data art
 </center>
 <br />
 
+Our cleaning data depeneds on both the code used to generate it and the raw data.  Our raw data depends only on the ingestion Python script.
+
 
 ## Developing our pipeline in a `Makefile`
 
-Now we will go step by step through our two step pipeline.
 
 ### 0. Our pipeline components
 
 Lets look at the two components in our pipeline - an ingestion step and a cleaning step, both of which are Python scripts.
 
-Our ingest step writes some data to a JSON file:
+`ingest.py` writes some data to a JSON file:
 
 ```python
 #  ingest.py
@@ -232,7 +233,7 @@ $ ./ingest.py; cat data/raw.json
 {"data": "raw", "ingest-time": "2021-12-19T13:57:53.407280"}
 ```
 
-Our clean step takes the raw data generated and updates the `data` field to `clean`:
+`clean.py` takes the raw data generated and updates the `data` field to `clean`:
 
 ```python
 #  clean.py
@@ -249,7 +250,7 @@ fi = Path.cwd() / "data" / "clean.json"
 fi.write_text(json.dumps(data))
 ```
 
-We can use the same pattern to generate and look at the result of our cleaning step:
+We can use `cat` again to look at the result of our cleaning step:
 
 ```sh-session
 $ ./clean.py; cat data/clean.json
@@ -263,9 +264,11 @@ Let's start out with a `Makefile` that runs our two stage data pipeline.
 
 We are already taking advantage of the ability to create dependencies between our pipeline stages, making our `clean` target depend on our `raw` target.
 
-We have also included a top level meta target which
+We have also included a top level meta target `all` which
 
 ```makefile
+#  Makefile
+
 all: clean
 
 raw:
@@ -397,12 +400,13 @@ ingesting {'data': 'clean', 'ingest-time': '2021-12-27T13:56:30.045009', 'clean-
 
 ## Summary
 
-That's it!  We hope you have enjoyed learning a bit about `make`, and are enthuastic to experiment with it in your work.
+That's it!  We hope you have enjoyed learning a bit about `make` & `Makefile`, and are enthusiastic to experiment with it in your data work.
 
-There is so much more depth and complexity to `make` and the `Makefile` - such as parallel execution of targets.
+There is more depth and complexity to `make` and the `Makefile` - such as parallel execution of targets.
 
 A quick reminder of what we have learnt:
 
+- a `Makefile` can be arbitrary complex, and execute pipelines based on the dependencies between code and data,
 - a `Makefile` can document your workflow,
 - is a central point of execution for your project,
 - can intelligently re-execute your pipeline.

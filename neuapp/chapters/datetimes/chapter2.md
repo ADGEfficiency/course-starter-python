@@ -10,23 +10,25 @@ courseId: datetimes
 
 <exercise id="1" title="Introduction" >
 
-After this chapter you will be able to:
+In the first section *Timezones*:
 
 - understand how to use the `pytz` library, 
 - create timezone aware datetimes with `localize`,
 - convert timezones with `astimezone`,
-
 - tzinfo, naive versus aware 
+
+In the second section *Daylight Saving*:
+
 
 ## Motivations
 
 Timezones are a modern day problem.
 
-Our ability to communicate & travel over large distances means we need to understand how to reference time all across the planet.  
+Our ability to communicate & travel over large distances means requires us to reference time all across the planet - past, present and future, in any location.
 
-Daylight savings introduce more complexity to the timezone problem - daylight savings means that a single location can have multiple timezones in a single year.
+Daylight savings introduce more complexity to the timezone problem - a single location can have multiple timezones in a single year.
 
-While timezones and daylight savings are complex, they are an unavoidable part of working with timestamps.  We believe that anyone can understand these systems.
+While timezones and daylight savings are complex, they are an unavoidable part of working with datetimes.  Mastering them is well within the capability of any data professional - hence this course ^^
 
 </exercise>
 
