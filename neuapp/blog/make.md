@@ -1,17 +1,19 @@
 ---
 title: Make for Data Science
 description: Make your data science workflows better with this classic UNIX tool.
-date: 2021-01-20
+date: 2022-01-20
 slug: "/blog/make"
 type: post
 
 ---
 
-`make` is a program of a similar vintage to `grep` and `ssh`. 
+`make` is a command-line program of the same class as `grep` and `ssh`. 
 
 A powerful tool that has stood the test of time, `make` is available in terminals everywhere serious compute is done.
 
-`make` isn't commonly used in data projects - I use them everywhere!  Here is how to use this classic tool in a modern data project.
+Originally used as a build automation tool - `make` can be used for any shell workflows that involve running programs and making files.
+
+`make` isn't commonly used in data projects - I've found it very useful in my day-to-day work!  Here is how to use this classic tool in a modern data project.
 
 
 ##  Der Anfang ist das Ende
@@ -402,12 +404,11 @@ ingesting {'data': 'clean', 'ingest-time': '2021-12-27T13:56:30.045009', 'clean-
 
 That's it!  We hope you have enjoyed learning a bit about `make` & `Makefile`, and are enthusiastic to experiment with it in your data work.
 
-There is more depth and complexity to `make` and the `Makefile` - such as parallel execution of targets.
+There is more depth and complexity to `make` and the `Makefile` - what you have seen so far is hopefully enough to encourage you to experiment and learn more while using a `Makefile` in your own project.
 
-A quick reminder of what we have learnt:
+A quick reminder of what we have learnt in this post:
 
 - a `Makefile` can be arbitrary complex, and execute pipelines based on the dependencies between code and data,
 - a `Makefile` can document your workflow,
 - is a central point of execution for your project,
 - can intelligently re-execute your pipeline.
-

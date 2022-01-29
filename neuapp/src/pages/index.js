@@ -21,7 +21,10 @@ export default ({ data }) => {
     const edges = data.allMarkdownRemark.edges
 
     const Posts = edges
-      .map(edge => <p><Link to={edge.node.frontmatter.slug}>{edge.node.frontmatter.title}</Link></p>)
+      .map(edge => <div>
+        <p><Link to={edge.node.frontmatter.slug}>{edge.node.frontmatter.title}</Link> - {edge.node.frontmatter.date}</p>
+        <p><i> {edge.node.frontmatter.description} </i> </p>
+    </div>)
 
     return (
         <Layout isHome>
@@ -32,7 +35,7 @@ export default ({ data }) => {
                   Data Science South is a collection of courses and blog posts aimed at data professionals - data analysts, scientists and engineers.
                 </p>
                 <p>
-                  If you want to follow as I create more - <Link>follow on LinkedIn</Link>.
+                  If you want to stay tuned as I create more -<strong> <Link>follow on LinkedIn!</Link></strong>
                 </p>
                 </div>
 
@@ -42,7 +45,7 @@ export default ({ data }) => {
                 </div>
             </section>
             <section>
-              <h1 className={classes.subtitle}> Blog Posts </h1>
+              <h1 className={classes.subtitle}> Blog </h1>
               <div className={classes.introduction}>
                 {Posts}
               </div>
@@ -79,7 +82,7 @@ export const pageQuery = graphql`
             }
         }
         allMarkdownRemark(
-            sort: { fields: [frontmatter___title], order: ASC }
+            sort: { fields: [frontmatter___date], order: DESC }
             filter: { frontmatter: { type: { eq: "post" } } }
         ) {
             edges {
@@ -88,6 +91,7 @@ export const pageQuery = graphql`
                         title
                         description
                         slug
+                        date(formatString: "MMM YYYY")
                     }
                 }
             }

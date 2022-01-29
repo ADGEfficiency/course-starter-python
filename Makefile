@@ -15,4 +15,4 @@ pull-static:
 	aws s3 sync s3://dss/neuapp/static neuapp/static
 
 push-static:
-	aws s3 sync neuapp/static s3://dss/neuapp/static 
+	aws s3 sync neuapp/static s3://dss/neuapp/static
