@@ -7,11 +7,11 @@ type: post
 
 ---
 
-`make` is a UNIX program of a similar vintage to `grep` and `ssh`. 
+`make` is a program of a similar vintage to `grep` and `ssh`. 
 
-A powerful tool that has stood the test of time, `make` is available everywhere serious compute is done.
+A powerful tool that has stood the test of time, `make` is available in terminals everywhere serious compute is done.
 
-Here is how to use this classic tool in a modern data project.
+`make` isn't commonly used in data projects - I use them everywhere!  Here is how to use this classic tool in a modern data project.
 
 
 ##  Der Anfang ist das Ende

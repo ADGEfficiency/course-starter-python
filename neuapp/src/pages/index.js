@@ -29,13 +29,10 @@ export default ({ data }) => {
             <section>
                 <div className={classes.introduction}>
                 <p>
-                  Data Science South is made by data professional who is passionate about supporting data science education.
+                  Data Science South is a collection of courses and blog posts aimed at data professionals - data analysts, scientists and engineers.
                 </p>
                 <p>
-                  My (high) hope for what Data Science South will be in the future - a world-class, indie bootcamp based in New Zealand!  For now Data Science South is a collection of courses and blog posts - all content designed to support data education.
-                </p>
-                <p>
-                  If you want to follow as we create more courses and blog posts - follow on LinkedIn.
+                  If you want to follow as I create more - <Link>follow on LinkedIn</Link>.
                 </p>
                 </div>
 

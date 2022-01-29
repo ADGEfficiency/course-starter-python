@@ -121,7 +121,7 @@ Competitions run for a certain period of time and then become inactive.  If your
 
 It's also possible to be creative on Kaggle.  You could take a different approach with a dataset, or even combine datasets across competitions.
 
-If you are looking for a competition to start from, we reccomend the following:
+If you are looking for a competition to start from, we recommend the following:
 
 - for complete beginners, the [Titanic dataset](https://www.kaggle.com/c/titanic) is a right of passage in data science,
 - for those looking for something more advanced, the image segmentation competition [Understanding Clouds from Satellite Images](https://www.kaggle.com/c/understanding_cloud_organization) is one of our favourites.

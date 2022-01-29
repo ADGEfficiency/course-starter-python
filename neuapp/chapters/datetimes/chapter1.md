@@ -11,31 +11,35 @@ courseId: datetimes
 
 <exercise id="1" title="Introduction & Motivations" >
 
-In the first section *Date, Time and Datetime*:
+## Introduction
 
-- work with the Python `datetime` module,
-- create `date`, `time` and `datetime` objects in Python,
-- combine a `date` and `time` into a `datetime`,
+In the first section *Date, Time and Datetime*, we cover:
+
+- working with the Python `datetime` module,
+- creating `date`, `time` and `datetime` objects in Python,
+- combining a `date` and `time` into a `datetime`,
 - get the current time using `now` and `utcnow`,
-- timedelta (converting from timedelta in col),
-- UNIX representation of time,
+- the UNIX representation of time,
+- timedeltas.
 
-In the second section *Datetime Strings and Objects*:
+In the second section *Datetime Strings and Objects*, we cover:
 
-- difference between strings and `datetime` objects,
+- the difference between strings and `datetime` objects,
 - ISO 8601, `isoformat` and `fromisoformat`,
-- format codes - specalized language for datetime string formatting,
+- format codes - a specialized language for datetime string formatting,
 - making `datetime` objects from strings with `strftime`,
 - making strings from `datetime` objects with `strptime`.
+
+All of the code in this course is compatible with Python 3.8.
 
 
 ## Motivations
 
 Working with dates, times, datetimes and timestamps is part of the work of any data professional - we all need to timestamp something sometime!
 
-Datetimes are challenging because so many things are arbitrary - where timezones are, if daylight saving applies or not - all these things are conventions.
+Datetimes are challenging because so many things are arbitrary - where timezones are, if daylight saving applies or not - all these things are conventions that you just need to get used to.
 
-This means working with datetimes requires gaining a certain amount of *boilerplate* knowledge (such as that the format code for year is `%Y` or what ISO 8601 is).
+Working with datetimes requires gaining a certain amount of *boilerplate* knowledge (such as that the format code for year is `%Y` or what ISO 8601 is).
 
 Hence a course on datetimes ^^
 

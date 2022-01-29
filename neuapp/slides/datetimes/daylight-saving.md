@@ -18,45 +18,66 @@ If you are working with daylight savings,
 
 ---
 
-Imagine we lived life in a single village our entire life.
+## Standard versus non-standard timezones
 
-This village is located far to the north, where the summer days are much longer than the days in winter.
-
-<img src="/datetimes/f1.png" alt="This image is in /static" width="50%">
-
-This seasonal pattern means that for the same time of the day (like 1200 or 1800) the sun is in a very different position.
+An important distinction in timezones is the difference between standard timezones (which are not affected by daylight savings) and non-standard timezones (where daylight is in effect).
 
 ---
 
-For years our village has only had one timezone to worry about
+## Daylight Saving
 
-To change this, our village implements daylight saving (they didn't need to, but they did) - our village now has two timezones - one for summer, one for winter:
+Let's return to the plant we explored in our section on timezones.  Our planet has two villages - Alpha and Omega - and three timezones:
 
-Decide to maintain two timezones - one timezone we follow in the summer, one timezone we follow in the winter
+- Coordinated Universal Time (UTC+00:00).
+- Alpha Standard Time (UTC+00:00),
+- Omega Standard Time (UTC+12:00),
+
+Omega is located far to the south where the summer days are much longer than the days in winter.
+
+This seasonal pattern means that for the same time of the day (like 1200 or 1800) the sun is in a very different position at different times of the year.
+
+Omega decides to implement a daylight saving time - decide to maintain two timezones - one timezone we follow in the summer, one timezone we follow in the winter.
+
+We now end up with:
+
+- Coordinated Universal Time (UTC+00:00).
+- Alpha Standard Time (UTC+00:00),
+- Omega Standard Time (UTC+12:00),
+- Omega Daylight Time (UTC+13:00).
+- 
+
+---
+
+## The consequences of daylight saving
+
+To demonstrate the consequences of our decision to maintain two timezones, we will use `pytz` to generate the what happens in the daylight savings days:
+
+- one short (23 hour) day with missing times,
+- and one long (25 hour) day with duplicate times.
+
+Let's look what happens during spring, when we transition from winter to summer.  We will use `pandas` to do this - don't worry if some of the code is unfamiliar at this stage:
 
 ```python
-import pandas as pd
-from datetime import timedelta
-
-st = "2020-12-25T00:00:00"
-en = "2020-12-26T00:00:00"
+date = date.fromisoformat('2020-09-27')
 
 df = pd.DataFrame({
-  "summer": pd.date_range(start=st, end=en, freq='4H')
+    'datetime': pd.date_range(
+        date, date + timedelta(days=1), freq='H', tz='Pacific/Auckland'
+    )
 })
-df['winter'] = df['summer'] - timedelta(hours=1)
+print(df.shape)
+print(df.head(10))
 ```
-
-see https://docs.google.com/presentation/d/1VVKMJWfghU_v4Z0Bu5srnnMgWXoz6BWIX_jLt8MFlRE/edit#slide=id.gcf89a93e1e_0_0 for images
-
----
-
-The consequences of our decision to maintain two timezones
-
-Let's look what happens during spring, when we transition from winter to summer.  When we choose to transition is arbitrary
 
 Let's look what happens during autumn, when we transition from summer to winter:
 
+Daylight saving currently commences on:
 
+- the last Sunday in September, when 2.00am becomes 3.00am, 
+- ends on the first Sunday in April, when 3.00am becomes 2.00am.
 
+2020
+- begins 0200 Sunday 27 Sept
 
+2021
+- ends 0300 Sunday 4 April 2021
