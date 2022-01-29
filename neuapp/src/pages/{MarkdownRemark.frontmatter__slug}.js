@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import { Link } from '../components/link'
 import Layout from '../components/layout'
-import classes from '../styles/index.module.sass'
+import * as classes from '../styles/index.module.sass'
 import Logo from '../../static/logo-neu.svg'
 
 const BlogPost = ({ data }) => {

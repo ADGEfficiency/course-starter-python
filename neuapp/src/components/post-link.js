@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 
-import classes from '../styles/index.module.sass'
+import * as classes from '../styles/index.module.sass'
 
 const PostLink = ({ post }) => (
   <div>

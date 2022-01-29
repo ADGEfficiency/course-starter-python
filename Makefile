@@ -4,11 +4,11 @@ APP=neuapp
 
 meta: app
 
-neuapp/package-lock.json:
+setup:
 	git clone https://github.com/ADGEfficiency/course-starter-python $(APP)
-	cd $(APP); npm install -g gatsby-cli
+	cd $(APP); npm install -g gatsby-cli; npm i
 
-app: neuapp/package-lock.json
+app:
 	cd $(APP); npm run dev
 
 pull-static:

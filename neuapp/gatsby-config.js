@@ -7,14 +7,10 @@ module.exports = {
         {
             resolve: `gatsby-plugin-sass`,
             options: {
+              sassOptions: {
                 indentedSyntax: true,
-                postCssPlugins: [autoprefixer()],
-                cssLoaderOptions: {
-                    localIdentName:
-                        process.env.NODE_ENV == 'development'
-                            ? '[name]-[local]-[hash:8]'
-                            : '[hash:8]',
-                },
+                esModule: false,
+              },
             },
         },
         `gatsby-plugin-react-helmet`,

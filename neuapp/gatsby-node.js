@@ -75,3 +75,18 @@ exports.createPages = ({ actions, graphql }) => {
         })
     })
 }
+
+// https://stackoverflow.com/questions/67075747/gatsby-cant-resolve-path-in-c-users-gatsby-starter-hello-world-node-mo
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+   resolve: {
+      fallback: {
+        url: require.resolve('url'),
+        util: require.resolve('util'),
+        crypto: require.resolve('crypto-browserify'),
+        path: require.resolve('path-browserify'),
+        stream: require.resolve('stream-browserify')
+      },
+    },
+  })
+}
