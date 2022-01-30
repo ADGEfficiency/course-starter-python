@@ -7,13 +7,13 @@ type: post
 
 ---
 
-`make` is a classic command-line program of the same class as `grep` and `ssh`. 
+`make` is a command-line program of the same breed as classic UNIX programs like `grep` and `ssh`. 
 
 A powerful tool that has stood the test of time, `make` is available in terminals everywhere serious compute is done.
 
-Originally used as a build automation tool - `make` can be used for any workflows that involve running programs and making files.
+Originally used for as a build automation tool - `make` can be used for any workflow that involves running programs and making files.
 
-`make` isn't commonly used in data projects - I've found it very useful in my day-to-day work!  Here is how to use this classic tool in a modern data project.
+Here is how to use `make` and `Makefile` in a modern data science project.
 
 
 ##  Der Anfang ist das Ende
@@ -33,7 +33,7 @@ all: ./data/clean.json
 	./clean.py
 ```
 
-Don't worry if it doesn't make sense now!  By the end you'll understand how it all works.
+Don't worry if this doesn't make sense now!  By the end you'll understand how it all works.
 
 
 ## Notation
@@ -65,11 +65,12 @@ A `Makefile` has three components:
 
 1. targets - files you are trying to make or a `PHONY` target,
 2. dependencies - targets that need to be run before a target,
-3. workflow - the sequence of steps needed to make your target.
-
+3. workflow - a sequence of `TAB` separated steps needed to make your target.
 
 ```makefile
 target: dependencies
+<TAB>workflow
+<TAB>workflow
 <TAB>workflow
 ```
 
@@ -180,6 +181,8 @@ We have already seen the functionality of intelligent pipeline re-execution - it
 
 `make` uses timestamps on files to track what to re-run (or not re-run) - it won't re-run code that has already been run and will re-run if dependencies of the target change.
 
+This can save you lots of time - not rerunning that expensive data ingestion and cleaning step when you are working on model selection.
+
 
 ## Our pipeline
 
@@ -266,7 +269,7 @@ Let's start out with a `Makefile` that runs our two stage data pipeline.
 
 We are already taking advantage of the ability to create dependencies between our pipeline stages, making our `clean` target depend on our `raw` target.
 
-We have also included a top level meta target `all` which
+We have also included a top level meta target `all` which depends on our `clean` step:
 
 ```makefile
 #  Makefile
@@ -339,11 +342,6 @@ $ make
 make: Nothing to be done for `all'.
 ```
 
-```sh-session
-$ make ./data/clean.json
-make: `data/clean.json' is up to date.
-```
-
 If we do want to only re-run our cleaning step, we can remove the previous output and run our pipeline again - with `make` knowing that it only needs to run the cleaning step again with existing raw data:
 
 ```sh-session
@@ -406,9 +404,12 @@ That's it!  We hope you have enjoyed learning a bit about `make` & `Makefile`, a
 
 There is more depth and complexity to `make` and the `Makefile` - what you have seen so far is hopefully enough to encourage you to experiment and learn more while using a `Makefile` in your own project.
 
-A quick reminder of what we have learnt in this post:
+Key takeaways are:
 
-- a `Makefile` can be arbitrary complex, and execute pipelines based on the dependencies between code and data,
-- a `Makefile` can document your workflow,
-- is a central point of execution for your project,
-- can intelligently re-execute your pipeline.
+- `make` is a powerful, commonly available tool that can run arbitrary shell workflows,
+- a `Makefile` forms a natural central point of execution for a project, with a simple CLI that integrates well with the shell,
+- `make` can intelligently re-execute your data pipeline - keeping track of the dependencies between code and data.
+
+---
+
+Thanks for reading!

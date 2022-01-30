@@ -271,7 +271,7 @@ An excellent example of this is work done [improving the forecasting of battery 
 ## 6. Curate a dataset
 
 <center>
-  <img src="/generating-ds-ideas/imagnet.png" width="80%" align="center">
+  <img src="/generating-ds-ideas/imagnet.jpeg" width="80%" align="center">
   <br />
 </center>
 

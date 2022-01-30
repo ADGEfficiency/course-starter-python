@@ -32,7 +32,7 @@ export default ({ data }) => {
             <section>
                 <div className={classes.introduction}>
                 <p>
-                  Data Science South is a collection of courses and blog posts aimed at data professionals - data analysts, scientists and engineers.
+                  Data Science South is a collection of courses and blog posts for data professionals - data analysts, scientists and engineers.
                 </p>
                 <p>
                   If you want to stay tuned as I create more -<strong> <Link to="https://www.linkedin.com/company/datasciencesouth">follow on LinkedIn!</Link></strong>
