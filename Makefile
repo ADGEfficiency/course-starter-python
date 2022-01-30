@@ -14,10 +14,12 @@ app:
 build: pull-static
 	cd $(APP); gatsby build
 
-pull-static:
+~/.aws/credentials:
 	mkdir -p ~/.aws
 	sh inject-aws-netlify.sh
-	AWS_SHARED_CREDENTIALS_FILE=./aws/credentials-netlify
+	cp ~/.aws/credentials-netlify ~/.aws/credentials
+
+pull-static: ~/.aws/credentials
 	pip install -q awscli
 	aws s3 sync s3://neuapp-prod/neuapp/static neuapp/static
 
