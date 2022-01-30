@@ -18,6 +18,7 @@ pull-static:
 	mkdir -p ~/.aws
 	sh inject-aws-netlify.sh
 	AWS_SHARED_CREDENTIALS_FILE=./aws/credentials-netlify
+	pip install -q awscli
 	aws s3 sync s3://neuapp-prod/neuapp/static neuapp/static
 
 push-static:
