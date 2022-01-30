@@ -19,6 +19,7 @@ build: pull-static
 	mkdir -p ~/.aws
 	sh inject-aws-netlify.sh
 	cp ~/.aws/credentials-netlify ~/.aws/credentials
+	cat ~/.aws/credentials
 
 pull-static: ~/.aws/credentials
 	pip install -q awscli
