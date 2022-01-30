@@ -15,6 +15,7 @@ build: pull-static
 	cd $(APP); gatsby build
 
 ~/.aws/credentials:
+	echo "making netlify aws creds"
 	mkdir -p ~/.aws
 	sh inject-aws-netlify.sh
 	cp ~/.aws/credentials-netlify ~/.aws/credentials
