@@ -1,6 +1,7 @@
 .PHONY: app
 
 APP=neuapp
+PROFILE=netlify
 
 meta: local-app
 
@@ -23,10 +24,10 @@ build: pull-static
 
 pull-static: ~/.aws/credentials
 	pip install -q awscli
-	aws s3 sync s3://neuapp-$(STAGE)/neuapp/static neuapp/static --profile adg
+	aws s3 sync s3://neuapp-$(STAGE)/neuapp/static neuapp/static --profile $(PROFILE)
 
 push-static:
-	aws s3 sync neuapp/static s3://neuapp-$(STAGE)/neuapp/static --profile adg
+	aws s3 sync neuapp/static s3://neuapp-$(STAGE)/neuapp/static --profile $(PROFILE)
 
 infra:
-	export AWS_PROFILE=adg; sls deploy -s $(STAGE)
+	export AWS_PROFILE=$(PROFILE); sls deploy -s $(STAGE)
