@@ -1,0 +1,21 @@
+service: neuapp
+
+custom:
+  stage: ${opt:stage}
+  region: ap-southeast-2
+
+  bucketName: "neuapp-${opt:stage}"
+  bucketArn: arn:aws:s3:::${self:custom.bucketName}
+
+provider:
+  name: aws
+  runtime: python3.8
+  region: ${self:custom.region}
+  stage: ${self:custom.stage}
+
+resources:
+  Resources:
+    testingBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:custom.bucketName}

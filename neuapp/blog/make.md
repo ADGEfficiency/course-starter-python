@@ -7,11 +7,11 @@ type: post
 
 ---
 
-`make` is a command-line program of the same class as `grep` and `ssh`. 
+`make` is a classic command-line program of the same class as `grep` and `ssh`. 
 
 A powerful tool that has stood the test of time, `make` is available in terminals everywhere serious compute is done.
 
-Originally used as a build automation tool - `make` can be used for any shell workflows that involve running programs and making files.
+Originally used as a build automation tool - `make` can be used for any workflows that involve running programs and making files.
 
 `make` isn't commonly used in data projects - I've found it very useful in my day-to-day work!  Here is how to use this classic tool in a modern data project.
 

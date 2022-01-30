@@ -11,8 +11,13 @@ setup:
 app:
 	cd $(APP); npm run dev
 
+build: pull-static
+	cd $(APP); gatsby build
+
 pull-static:
-	aws s3 sync s3://dss/neuapp/static neuapp/static
+	sh inject-aws-netlify.sh
+	AWS_SHARED_CREDENTIALS_FILE=./aws/credentials-netlify
+	aws s3 sync s3://neuapp-prod/neuapp/static neuapp/static
 
 push-static:
-	aws s3 sync neuapp/static s3://dss/neuapp/static
+	aws s3 sync neuapp/static s3://neuapp-prod/neuapp/static
