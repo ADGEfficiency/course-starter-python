@@ -2,17 +2,19 @@
 
 APP=neuapp
 PROFILE=netlify
+STAGE?=dev
 
 meta: local-app
 
-setup:
-	git clone https://github.com/ADGEfficiency/course-starter-python $(APP)
-	cd $(APP); npm install -g gatsby-cli; npm i
-
-local-app:
+local-app: js-deps
 	cd $(APP); npm run dev
 
-build: pull-static
+./neuapp/node_modules/gatsby/README.md:
+	cd $(APP); npm install -g gatsby-cli; npm i
+
+js-deps: ./neuapp/node_modules/gatsby/README.md
+
+build: pull-static js-deps
 	cd $(APP); gatsby build
 
 #  this will only run on netlify during build
