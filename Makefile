@@ -19,6 +19,8 @@ build: pull-static
 	mkdir -p ~/.aws
 	sh inject-aws-netlify.sh
 	cp ~/.aws/credentials-netlify ~/.aws/credentials
+	export AWS_ACCESS_KEY_ID=$(NETLIFY_AWS_ACCESS_KEY_ID)
+	export AWS_SECRET_ACCESS_KEY=$(NETLIFY_AWS_SECRET_ACCESS_KEY)
 
 pull-static: ~/.aws/credentials
 	pip install -q awscli
