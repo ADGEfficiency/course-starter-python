@@ -13,7 +13,7 @@ A powerful tool that has stood the test of time, `make` is available in terminal
 
 Originally used for as a build automation tool - `make` can be used for any workflow that involves running programs and making files.
 
-Here is how to use `make` and `Makefile` in a modern data science project.
+Here is how to use this classic tool in a modern data science project.
 
 
 ##  Der Anfang ist das Ende
@@ -65,7 +65,7 @@ A `Makefile` has three components:
 
 1. targets - files you are trying to make or a `PHONY` target,
 2. dependencies - targets that need to be run before a target,
-3. workflow - a sequence of `TAB` separated steps needed to make your target.
+3. a workflow - a sequence of `TAB` separated steps needed to make your target.
 
 ```makefile
 target: dependencies
@@ -145,7 +145,7 @@ Documenting project workflow is a [basic quality of a good data project](https:/
 
 Most projects will need only one `Makefile` - making this file a natural, central place for your project (second only to the `README.md`).   It's an anchor your project is setup around.  
 
-A `Makefile` is excellent documentation because it is **machine readable & executable** - the best kind of documentation. Like any text file it's easy to track changes in source control.
+A `Makefile` is excellent documentation - **machine readable & executable** - the best kind of documentation. Like any text file it's easy to track changes in source control.
 
 Creating your data science workflow in a sequence of `make` targets also has the benefit of massaging your pipelines to be more modular - encouraging functional decomposition of shell or Python scripts.
 
@@ -186,7 +186,9 @@ This can save you lots of time - not rerunning that expensive data ingestion and
 
 ## Our pipeline
 
-We will build a data pipeline - using Python scripts as mock for real data tasks - with data flowing from left to right:
+We will build a data pipeline - using Python scripts as mock for real data tasks - with data flowing from left to right.
+
+Our ingestion step creates raw data, and our cleaning step creates clean data:
 
 <center>
   <img src="/make/data.png" width="80%" align="center">
@@ -194,8 +196,6 @@ We will build a data pipeline - using Python scripts as mock for real data tasks
   <figcaption>Data flows from left to right, in a two stage ingestion & cleaning process.</figcaption>
 </center>
 <br />
-
-Our ingestion step creates raw data, and our cleaning step creates clean data.
 
 We can look at the same pipeline in terms of the dependency between the data artifacts & source code of our pipeline - with dependency flowing from right to left:
 
@@ -206,7 +206,7 @@ We can look at the same pipeline in terms of the dependency between the data art
 </center>
 <br />
 
-Our cleaning data depeneds on both the code used to generate it and the raw data.  Our raw data depends only on the ingestion Python script.
+Our clean data depends on both the code used to generate it and the raw data.  Our raw data depends only on the ingestion Python script.
 
 
 ## Developing our pipeline in a `Makefile`
