@@ -1,6 +1,8 @@
 .serverless
 .vscode
 
+neuapp/static/
+
 neuapp/node_modules/*
 
 # Logs
