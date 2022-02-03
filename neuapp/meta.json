@@ -1,11 +1,11 @@
 {
-    "courseId": "course-starter-python",
-    "title": "Data Science South",
-    "slogan": "A free online course",
-    "description": "Data Science South is the start of something!",
-    "bio": "I'm Adam - currently I'm working as a Data Engineer at Gridcognition.",
-    "siteUrl": "https://course-starter-python.netlify.com",
-    "twitter": "spacy_io",
+  "courseId": "course-starter-python",
+  "title": "Data Science South",
+  "slogan": "A free online course",
+  "description": "Data Science South is the start of something!",
+  "bio": "I'm Adam - currently I'm working as a Data Engineer at Gridcognition.",
+  "siteUrl": "https://course-starter-python.netlify.com",
+  "twitter": "spacy_io",
     "fonts": "IBM+Plex+Mono:500|IBM+Plex+Sans:700|Lato:400,400i,700,700i",
     "testTemplate": "from wasabi import Printer\n__msg__ = Printer()\n__solution__ = \"\"\"${solution}\"\"\"\n\n${solution}\n\n${test}\n\ntry:\n    test()\nexcept AssertionError as e:\n    __msg__.fail(e)",
     "juniper": {
@@ -17,9 +17,8 @@
     },
     "showProfileImage": true,
     "footerLinks": [
-        { "text": "Website", "url": "https://spacy.io" },
-        { "text": "Source", "url": "https://github.com/ADGEfficiency/course-starter-python" },
-        { "text": "Built with ♥", "url": "https://github.com/ines/course-starter-python" }
+        { "text": "Built with ♥", "url": "https://github.com/ADGEfficiency/course-starter-python" },
+        { "text": "Follow on LinkedIn", "url": "https://www.linkedin.com/company/datasciencesouth" }
     ],
     "theme": "#3a9cd0"
 }

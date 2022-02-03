@@ -8,19 +8,16 @@ id: 3
 courseId: datetimes-draft
 ---
 
-
 <exercise id="1" title="Introduction" >
+
+## Introduction
+
+## Motivations
 
 Why pandas
 
 - many data analysts spend their days in pandas
 - there are additional ideas that only occur when you start to group or collect datetimes
-
-tz convert
-
-date range
-
-resample
 
 To demonstrate these ideas we will cover the following use cases:
 
@@ -30,8 +27,17 @@ To demonstrate these ideas we will cover the following use cases:
 
 </exercise>
 
-<exercise id="2" title="Pandas Patterns" >
+<exercise id="2" title="Pandas Datetime Tools" >
+
+apply - to clean datetime columns in place
+
+pd.Timestamp, pd.to_datetime, pd.read_csv(parse_datetimes=True) pd.date_range
+
+tz convert
+
+resample, groupby
 
 </exercise>
-<exercise id="3" title="Pandas Examples" >
+
+<exercise id="3" title="Pandas Datetime Patterns & Workflows" >
 </exercise>

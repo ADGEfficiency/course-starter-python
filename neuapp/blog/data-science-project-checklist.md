@@ -5,7 +5,7 @@ description: Create a data science project you can be proud of.
 featured_image: /images/photos/andaman.jpg
 date: 2020-10-16
 type: post
-slug: "/blog/checklist"
+slug: "/blog/data-science-project-checklist"
 
 ---
 

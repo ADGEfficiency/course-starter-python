@@ -3,7 +3,7 @@ title: Should you be using pathlib?
 description: A comparison of two Python path libraries - os and pathlib.
 date: 2021-01-20
 type: post
-slug: "/blog/pathlib"
+slug: "/blog/python-file-system"
 
 ---
 
