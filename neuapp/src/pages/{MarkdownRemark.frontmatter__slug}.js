@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import { Link } from '../components/link'
 import Layout from '../components/layout'
 import * as classes from '../styles/index.module.sass'
+import '../styles/blog.module.sass'
 import Logo from '../../static/logo-neu.svg'
 
 const BlogPost = ({ data }) => {
