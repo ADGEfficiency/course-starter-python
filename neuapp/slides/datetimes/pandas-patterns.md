@@ -2,6 +2,16 @@
 type: slides
 ---
 
+## Why a section on patterns?
+
+We have an entire section of this course on datetimes dedicated to pandas.
+
+The previous chapter focused on the low level, atomic functionality of pandas.
+
+This chapter focuses on a higher level - combining many of the pandas datetime tools into a more complex and useful workflow.
+
+---
+
 ## Combine year, month and day in pandas to create a date
 
 Imagine you have a dataset like the following:
@@ -20,13 +30,27 @@ What is the best way to create a single datetime column?
 
 ## How select all values between two dates by year, month, day columns?
 
+Imagine you have a dataset like the following:
+
+```python
+df = pd.DataFrame({
+    'date': pd.date_range('2020-01-01', '2023-01-01', freq='D')
+})
+```
+
+What is the best way to select all rows between April 2020 and September 2022?
+
 ---
 
 ## Select first Monday of the month
 
+Imagine you have a dataset like the following:
 
----
+```python
+df = pd.DataFrame({
+    'date': pd.date_range('2020-01-01', '2020-02-01', freq='D')
+})
+```
 
-## Get todays date
+What is the best way to select the first Monday in January 2020?
 
-A common operation is to today's date in a "YYYY-MM-DD" format

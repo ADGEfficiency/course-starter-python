@@ -1,6 +1,6 @@
 ---
 title: 'Chapter 3: Datetimes in Pandas'
-description: ''
+description: 'pd.Timestamp, pd.to_datetime, day versus month first, creating date ranges, working with datetime columns, timezones, resampling, groupby.'
 prev: /datetimes/chapter2
 next: null
 type: chapter

@@ -13,6 +13,9 @@ from datetime import datetime
 #  create an ISO timestamp of current UTC time
 dt = datetime.utcnow().isoformat()
 
+#  get todays date in YYYY-MM-DD format
+dt = datetime.utcnow().strftime('%Y-%m-%d')
+
 #  datetime string + format code -> object
 dt = datetime.strptime('%Y-%m-%d', '2022-02-01')
 
