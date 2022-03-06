@@ -160,19 +160,19 @@ Both `utcnow` and `today` return objects that are timezone naive (they have no t
 
 ### Datetime Representations
 
-So far all the datetime representations we have looked at are **partitioned representations** - each element of the datetime is stored in it's own space (such as the year or month) - each element is an integer component of time.
+The datetime representations we have looked at are **partitioned representations** - each element of the datetime is stored in it's own space (such as the year or month) - each element is an integer component of time.
 
-An alternative representation of a datetime are **offset representations** - offset from anchor (such as seconds since UNIX epoch).
+An alternative representation of a datetime is an **offset representations** - offset from anchor (such as seconds since UNIX epoch).
+
 
 ### UNIX Time
 
-The UNIX time is an numeric represenation of time - it is the number of seconds that have elapsed since the *UNIX epoch* (arbitrarly set at 1st January 1970).
+The UNIX time is an numeric representation of time - it is the number of seconds that have elapsed since the *UNIX epoch* (arbitrary set at 1st January 1970).
 
 You can get a UNIX timestamp of the current time using `time.time`:
 
 ```python
 import time
-
 time.time()
 ```
 

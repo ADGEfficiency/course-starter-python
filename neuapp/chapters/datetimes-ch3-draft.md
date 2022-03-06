@@ -14,11 +14,24 @@ courseId: datetimes
 
 The first section *Pandas Datetime Ecosystem* covers 
 
-- make dummy time series data,
-- check data quality,
+- `pd.Timestamp`,
+- `pd.to_datetime`,
+- day versus month first,
+- `pd.date_range`,
+- working with datetime columns,
+- using `apply`,
+- timezones in pandas,
+- resampling and groupby.
 
 The second section *Pandas Datetime Workflows* covers 
 
+- combining year, month and day,
+- selecting values between dates,
+- selecting first Monday of the month,
+
+???
+- make dummy time series data,
+- check data quality,
 - test driven development of a datetime transform,
 - cleaning New Zealand electricity price data.
 
@@ -35,10 +48,10 @@ To demonstrate these ideas we will cover the following use cases:
 
 </exercise>
 
-<exercise id="2" title="Pandas Datetime Tools" type="slides">
+<exercise id="2" title="Pandas Datetime Ecosystem" type="slides">
 <slides source="datetimes/pandas-tools"></slides>
 </exercise>
 
-<exercise id="3" title="Pandas Datetime Patterns & Workflows" type="slides">
+<exercise id="3" title="Pandas Datetime Patterns" type="slides">
 <slides source="datetimes/pandas-patterns"></slides>
 </exercise>

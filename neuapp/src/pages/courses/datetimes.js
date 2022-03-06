@@ -12,9 +12,10 @@ export default ({ data }) => {
     const courseMetadata = data.courseData.edges.map(({ node }) => ({
         title: node.frontmatter.title,
         description: node.frontmatter.description,
+        body: node.html
     }))[0]
 
-    const chapters = data.allMarkdownRemark.edges.map(({ node }) => ({
+    const chapters = data.chapters.edges.map(({ node }) => ({
         slug: node.fields.slug,
         title: node.frontmatter.title,
         description: node.frontmatter.description,
@@ -26,8 +27,12 @@ export default ({ data }) => {
             <section>
                 <div className={classes.introduction}>
                 <p>{courseMetadata.description}</p>
-                </div>
-            </section>
+                <div
+                  className="blog-post-content"
+                  dangerouslySetInnerHTML={{ __html: courseMetadata.body }}
+                />
+              </div>
+              </section>
 
             {chapters.map(({ slug, title, description }) => (
                 <section key={slug} className={classes.chapter}>
@@ -54,7 +59,7 @@ export const pageQuery = graphql`
             title
           }
         }
-        allMarkdownRemark(
+        chapters: allMarkdownRemark(
             sort: { fields: [frontmatter___title], order: ASC }
             filter: { frontmatter: { type: { eq: "chapter" }, courseId: {eq: "datetimes" } } }
         ) {
@@ -80,6 +85,7 @@ export const pageQuery = graphql`
               title
               type
             }
+            html
           }
         }
       }

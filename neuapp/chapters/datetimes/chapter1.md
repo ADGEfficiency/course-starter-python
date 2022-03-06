@@ -13,7 +13,7 @@ courseId: datetimes
 
 ## Introduction
 
-In the first section *Date, Time and Datetime*, we cover:
+The first section *Date, Time and Datetime* covers:
 
 - working with the Python `datetime` module,
 - creating `date`, `time` and `datetime` objects in Python,
@@ -22,7 +22,7 @@ In the first section *Date, Time and Datetime*, we cover:
 - the UNIX representation of time,
 - timedeltas.
 
-In the second section *Datetime Strings and Objects*, we cover:
+The second section *Datetime Strings and Objects* covers:
 
 - the difference between strings and `datetime` objects,
 - ISO 8601, `isoformat` and `fromisoformat`,
@@ -35,11 +35,15 @@ All of the code in this course is compatible with Python 3.8.
 
 ## Motivations
 
-Working with dates, times, datetimes and timestamps is part of the work of any data professional - we all need to timestamp something sometime!
+Working with dates, times, datetimes and timestamps is part of the work of any data professional - we all need to timestamp something sometime.
 
-Datetimes are challenging because so many things are arbitrary - where timezones are, if daylight saving applies or not - all these things are conventions that you just need to get used to.
+Datetimes are challenging because so many things are arbitrary - where timezones are, if daylight saving applies or not - all these things are conventions that are arbitrary but consistent.
 
-Working with datetimes requires gaining a certain amount of *boilerplate* knowledge (such as that the format code for year is `%Y` or what ISO 8601 is).
+Working with datetimes requires gaining a certain amount of *boilerplate knowledge*, such:
+
+- such as that the format code for year is `%Y`,
+- what ISO861 is,
+- what `strptime` and `strftime` do.
 
 Hence a course on datetimes ^^
 

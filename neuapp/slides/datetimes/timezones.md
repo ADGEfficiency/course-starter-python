@@ -4,25 +4,26 @@ type: slides
 
 ## Why timezones are hard
 
-Timezones are hard because it forces us to do something unnatural - consider the same point in time at different places.
+Timezones force us to do something unnatural - consider the **same point in time** in **different places**.
 
-Timezones are also arbitrary - where we draw timezone boundaries is mostly a political problem.  China for example has only a single timezone.
+Timezones are arbitrary - where we draw timezone boundaries is a political decision.  China for example has only a single timezone.
 
-Timezones can change - cities can go from one timezone to another, or change timezone, due to either daylight savings or a political decision.
+Timezones can change - cities can change from timezone to another, due to either daylight savings or a change of timezone.
 
 ---
 
 ## Advice for working with timezones
 
-Make the decision early on about whether you need to support multiple timezones in your project.  
+Make the decision early on about whether you need to support multiple timezones.
 
-Stick to one timezone if you can - if your entire business is within a single timezone, use this to your advantage!  If all your data is in a single timezone, you may be able to use timezone naive timestamps.
+Stick to one timezone if you can - if your entire business is within a single timezone, use this to your advantage!  You may even be able to use timezone naive timestamps.
 
 Use standard timezones (timezones that do not observe daylight saving) where possible.
 
-Default to UTC - [even if it's not a silver bullet](https://codeblog.jonskeet.uk/2019/03/27/storing-utc-is-not-a-silver-bullet/).  Consider storing the timezone alongside a UTC timestamp, or even storing the elements of the datetime (such as year or day) as separate columns (which we know know is a partitioned representation).
+Default to UTC - [even if it's not a silver bullet](https://codeblog.jonskeet.uk/2019/03/27/storing-utc-is-not-a-silver-bullet/).  Consider storing the timezone alongside a UTC timestamp.
 
-The requirements of your project will determine what the correct decision is for you and your colleagues.  Spend time thinking about how you should be storing dates, datetimes and 
+Consider storing the elements of the datetime (such as year or day) as separate columns (which we know know is a partitioned representation).
+
 
 ---
 
@@ -32,25 +33,27 @@ Imagine a small planet with one village - Alpha.
 
 <img src="/datetimes/f2.png" alt="This image is in /static" width="50%">
 
-Because of how the sun moves around this planet, different parts of the planet are in light or darkness at the same moment in time.  For the inhabitants of Alpha this doesn't matter - they live in Alpha Standard Time.
+Because of how the sun moves around this planet, different parts of the planet are in light or darkness at the same moment in time. 
 
-The inhabitants of Alpha don't like to explore - until one day, a group of villagers leave for the unknown.
+For the inhabitants of Alpha, *who abhor to explore*, this doesn't matter - they live in Alpha, and always follow Alpha Standard Time - a 24 hour clock.
+
+Until one day, a group of villagers leave for the unknown.
 
 ---
 
 ## What is a timezone?
 
-One day a second village is discovered - named Omega, it's located on the other side of the planet.  When it's daytime in Alpha, it is night in omega (and vice versa).
+One day a second village is discovered - named Omega, located on the other side of the planet.  When it's day in Alpha, it is night in Omega (and vice versa).
 
-Eager to share and learn, the village of Omega adopts Alpha Standard Time.  Quickly the effects of this decision start to become apparent.  
+Eager to share and learn, the village of Omega adopts Alpha Standard Time.  Quickly the effects of this decision start to become apparent.
 
-School starts at 0600 in Alpha Standard Time in Alpha - for the residents of Omega to start school at the same time of day, they start school at 1800!
+School starts at 0600 in Alpha Standard Time - for the residents of Omega to start school at the same time of day, they start school at 1800!
 
 In order for the time to make sense in both villages, our planet three implements timezones:
 
 - Alpha Standard Time,
 - Omega Standard Time,
-- Coordinated Universal Time.
+- Coordinated Universal Time (known as UTC).
 
 
 ---
@@ -67,9 +70,12 @@ We locate UTC in Alpha - Alpha Standard Time and UTC are the same time.  We can 
 
 Why have two timezones that cover the same timezone exactly?  The reason is that Alpha Standard Time may change in the future - for example, we may decide to shift AST to `UTC-01:00` - one hour behind UTC.  UTC avoids all this complication and will not change for any reason, making it a useful place to reference all other timezones from.
 
+---
+
 ## Offset timezones
 
 Our other two timezones covers our two villages - Alpha Standard Time at `UTC+00:00` and Omega Standard Time at `UTC+12:00`.
+
 
 ---
 
@@ -81,9 +87,9 @@ We will be using the `pytz` library - which is not part of the Python standard l
 
 This section covers:
 
-- `pytz` -
-- naive versus aware timezones,
-- localization versus conversion.
+- `pytz` and the `tz` database,
+- naive versus aware timestamps,
+- timezone localization versus timezone conversion,
 
 ---
 
@@ -107,13 +113,23 @@ This reversal of sign can cause problems - especially with users that are used t
 
 ---
 
-## Timezone naive versus timezone aware
+## Naive versus timezone aware timestamps
+
+Give examples of the ISO datetimes with timezones:
+
+```
+```
+
+---
+
+## How to make a timezone aware datetime object in Python?
+
+Timezone naive versus timezone aware
 
 In Chapter 1 all the methods we looked at for creating datetimes were *timezone-naive* - they had no indication of timezone (even somewhat confusingly) for `datetime.utcnow()`:
 
 ```python
 from datetime import datetime
-
 dt = datetime.utcnow()
 ```
 
@@ -179,7 +195,7 @@ dt.isoformat()
 
 ---
 
-## Timezone conversion
+## How to convert timezones with `astimezone`
 
 Timezone conversion is similar to localization - except in conversion we start with a timezone aware datetime.
 
@@ -210,15 +226,12 @@ dt.isoformat()
 '2022-01-08T08:23:30.946353+13:00'
 ```
 
+---
 
+## tzinfo
 
+---
 
 ## References
 
 https://codeblog.jonskeet.uk/2019/03/27/storing-utc-is-not-a-silver-bullet/
-
-
-
-
-
-

@@ -19,3 +19,11 @@ Intro exercise
 
 Practical at the end of each non-slides section
 - if you have been showing code, you need to let people write some
+
+
+---
+
+
+## ines/course-starter-python
+
+docs - https://ines.github.io/course-starter-python/

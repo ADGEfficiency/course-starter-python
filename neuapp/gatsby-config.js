@@ -4,6 +4,7 @@ const autoprefixer = require('autoprefixer')
 module.exports = {
     siteMetadata: meta,
     plugins: [
+        `gatsby-plugin-mdx`,
         {
             resolve: `gatsby-plugin-sass`,
             options: {
