@@ -174,6 +174,12 @@ echo "$(NAME) is from $(COUNTRY)"
 adam is from nz
 ```
 
+We can also assign the output values of shell commands using:
+
+```makefile
+VAR = $(shell echo value)
+```
+
 
 ### Intelligent pipeline re-execution
 
