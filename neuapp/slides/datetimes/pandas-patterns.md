@@ -17,6 +17,8 @@ This chapter focuses on a higher level - combining many of the pandas datetime t
 Imagine you have a dataset like the following:
 
 ```python
+import pandas as pd
+
 df = pd.DataFrame({
   'year': [2020, 2020, 2021, 2025],
   'month': [2020, 2020, 2021, 2025],
