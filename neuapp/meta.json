@@ -1,7 +1,7 @@
 {
   "courseId": "course-starter-python",
   "title": "Data Science South",
-  "slogan": "A free online course",
+  "slogan": "A data professional education company",
   "description": "Data Science South is the start of something!",
   "bio": "I'm Adam - I work as a Data Engineer at Gridcognition.",
   "siteUrl": "https://course-starter-python.netlify.com",
@@ -9,11 +9,11 @@
     "fonts": "IBM+Plex+Mono:500|IBM+Plex+Sans:700|Lato:400,400i,700,700i",
     "testTemplate": "from wasabi import Printer\n__msg__ = Printer()\n__solution__ = \"\"\"${solution}\"\"\"\n\n${solution}\n\n${test}\n\ntry:\n    test()\nexcept AssertionError as e:\n    __msg__.fail(e)",
     "juniper": {
-        "repo": "ines/course-starter-python",
+        "repo": "ADGEfficiency/neuapp",
         "branch": "binder",
         "lang": "python",
         "kernelType": "python3",
-        "debug": false
+        "debug": true
     },
     "showProfileImage": true,
     "footerLinks": [
