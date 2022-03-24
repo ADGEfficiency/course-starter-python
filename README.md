@@ -1,3 +1,8 @@
+https://github.com/ines/spacy-course
+
+https://raw.githubusercontent.com/ines/spacy-course/master/chapters/en/chapter1.md
+
+
 ## Structure of a course
 
 Chapters 
