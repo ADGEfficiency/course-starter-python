@@ -25,7 +25,6 @@ Let's start by using the library `pandas` to read data from a url into a `pd.Dat
 
 <exercise id="3" title="Exploring the BP Historical Dataset">
 
-
 <codeblock id="01_02"></codeblock>
 
 </exercise>

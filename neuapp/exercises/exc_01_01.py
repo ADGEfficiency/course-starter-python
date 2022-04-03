@@ -8,5 +8,6 @@ url = (
 )
 
 raw = pd.read_csv(url)
+print(f"rows {raw.shape[0]}, cols {raw.shape[1]}")
 print(list(raw.columns))
 print(raw.iloc[:3, :5])

@@ -5,6 +5,3 @@ type: course
 courseId: sql
 
 ---
-
-
-
