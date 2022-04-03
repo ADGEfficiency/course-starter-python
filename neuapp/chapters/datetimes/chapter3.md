@@ -12,7 +12,7 @@ courseId: datetimes
 
 ## Introduction
 
-The first section *Pandas Datetime Ecosystem* covers 
+The first section *Pandas Datetime Ecosystem* covers:
 
 - `pd.Timestamp`,
 - `pd.to_datetime`,
@@ -23,7 +23,7 @@ The first section *Pandas Datetime Ecosystem* covers
 - timezones in pandas,
 - resampling and groupby.
 
-The second section *Pandas Datetime Workflows* covers 
+The second section *Pandas Datetime Workflows* covers:
 
 - combining year, month and day,
 - selecting values between dates,
@@ -32,13 +32,9 @@ The second section *Pandas Datetime Workflows* covers
 
 ## Motivations
 
-pandas is a foundational library in the Python data ecosystem.
+pandas is a foundational library in the Python data ecosystem - many data professionals spend their entire day in pandas.
 
-Many data professionals spend their days in pandas.
-
-There are additional ideas that only occur when you start to group or collect datetimes
-
-To demonstrate these ideas we will cover the following use cases:
+Previously we have looked at operations on a single datetime - there are additional ideas that only occur when you start to group or collect datetimes - hence a look at how pandas works with datetimes.
 
 </exercise>
 
