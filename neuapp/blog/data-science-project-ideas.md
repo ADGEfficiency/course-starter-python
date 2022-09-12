@@ -1,7 +1,8 @@
 ---
 layout: sidebar 
 title: Generating Data Science Project Ideas 
-date: 2020-10-14 description: Seven strategies to generate data science projects. 
+date: 2020-10-14 
+description: Seven strategies to generate data science projects. 
 slug: /blog/data-science-project-ideas
 type: post
 ---
