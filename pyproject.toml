@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "gatsby0"
+version = "0.1.0"
+description = ""
+authors = ["Adam Green <adam.green@adgefficiency.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.8"
+awscli = "^1.25.71"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

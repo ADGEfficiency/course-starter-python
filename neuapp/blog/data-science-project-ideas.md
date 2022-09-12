@@ -1,6 +1,12 @@
 ---
+layout: sidebar 
+title: Generating Data Science Project Ideas 
+date: 2020-10-14 description: Seven strategies to generate data science projects. 
+slug: /blog/data-science-project-ideas
+type: post
+---
 
-layout: sidebar title: Generating Data Science Project Ideas date: 2020-10-14 description: Seven strategies to generate data science projects. slug: '/blog/data-science-project-ideas' type: post ---**Side projects are one of the best things about working with data**. Most projects require large teams & expensive software - try building a bridge as a lone civil engineer with only a laptop and an internet connection!
+**Side projects are one of the best things about working with data**. Most projects require large teams & expensive software - try building a bridge as a lone civil engineer with only a laptop and an internet connection!
 
 The openness of the data science community with data, tools and education means even small projects can produce meaningful outcomes for you and others.
 
