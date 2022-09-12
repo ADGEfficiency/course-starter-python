@@ -3,23 +3,25 @@ courseId: datetimes
 title: 'Working with Datetimes in Python'
 description: Time to learn about datetimes in Python.
 type: course
-
 ---
 
+## Datetimes in Python Cheat Sheet
 
 ```python
-from datetime import datetime
+from datetime import date, datetime
 
-#  create an ISO timestamp of current UTC time
+#  convert a date to datetime
+dt = datetime.combine(date.today(), datetime.min.time())
+
+#  ISO timestamp string of current UTC time
 dt = datetime.utcnow().isoformat()
 
-#  string + format code -> object
+#  string + format -> object
 dt = datetime.strptime('%Y-%m-%d', '2022-02-01')
 
-#  object + format code -> string
+#  datetime object + format -> string
 dt.strftime("%Y-%m-%dT%H:%M:%S")
 
-#  today's date in YYYY-MM-DD format
+#  today's date as YYYY-MM-DD string
 dt = datetime.utcnow().strftime('%Y-%m-%d')
 ```
-

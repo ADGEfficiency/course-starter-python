@@ -1929,3 +1929,8 @@
 .zoomed .reveal .roll span:after {
     visibility: hidden;
 }
+
+.reveal p a:hover, a:visited, a:link, a:active {
+  text-decoration: underline;
+  border-bottom: none;
+}

@@ -18,7 +18,7 @@
     "showProfileImage": true,
     "footerLinks": [
         { "text": "Built with ♥", "url": "https://github.com/ADGEfficiency/course-starter-python" },
-        { "text": "Follow on LinkedIn", "url": "https://www.linkedin.com/company/datasciencesouth" }
+        { "text": "LinkedIn", "url": "https://www.linkedin.com/company/datasciencesouth" }
     ],
     "theme": "#3a9cd0"
 }
