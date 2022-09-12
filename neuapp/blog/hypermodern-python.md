@@ -1,5 +1,5 @@
 ---
-title: The Hypermodern Python Stack
+title: Hypermodern Python Stack
 description: The 2022 edition of an ultra modern Python toolbox.
 date: 2022-09-04
 slug: '/blog/hypermodern-python'
@@ -103,7 +103,7 @@ If you are having an trouble getting pyenv setup, take a look at this [installer
 
 After installing this version of Python, we can now create a virtual environment using this Python version.  [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv) is a tool for managing virtual environments - it's an alternative to venv or miniconda.
 
-No suprises that pyenv-virtualenv it plays well with our pyenv installation of 3.10.6 above:
+No surprises that pyenv-virtualenv it plays well with our pyenv installation of 3.10.6 above:
 
 ```shell-session
 $ pyenv virtualenv 3.10.6 default
@@ -218,7 +218,7 @@ typing-extensions = ">=3.10"
 
 While Poetry is great, it's not time to say goodbye to pip (Poetry itself needs to be installed with pip).
 
-We can export our dependencies to a pip compatiable `requirements.txt`:
+We can export our dependencies to a pip compatible `requirements.txt`:
 
 ```shell
 $ poetry export -f requirements.txt > requirements.txt
@@ -264,7 +264,7 @@ The code below has imports that are out of order alphabetically and grouped inco
 #  bad_imports.py
 import pandas as pd
 import random
-import collections
+impport collections
 data = [1, 4, 8]
 datas[0] = 2
 ```
@@ -293,7 +293,7 @@ _Tip_ - it's common to run these formatters on file save or in continuous integr
 
 ## Static Type Checking with mypy
 
-[mypy](http://www.mypy-lang.org/) is a tool for enforcing type safety in Python code - it's an alternative to type declarations being only for decoration.
+[mypy](http://www.mypy-lang.org/) is a tool for enforcing type safety in Python code - it's an alternative to type declarations remaining as unexecuted documentation.
 
 In some parts of the Python world, Python has undergone a transition similar to the Javascript to Typescript transition - type safe Python code is now the standard. Running mypy on Python codebases has become a sign of quality and pride for modern Python developers.
 
@@ -441,7 +441,7 @@ $ tree
         └── __init__.py
 ```
 
-Then add a Python file `./general/cli.py` with our typer CLI:
+Then add a Python file `./general/cli.py` with our Typer CLI:
 
 ```python
 #  general/cli.py
@@ -479,7 +479,7 @@ Options:
   --help                Show this message and exit.
 ```
 
-We can take this one step further - by adding a script to our `pyproject.toml` - `general-cli` will point towards the `main` function in `general.cli`:
+We can take this one step further. By adding a script to our `pyproject.toml` - `general-cli` will point towards the `main` function in `general.cli`:
 
 ```toml
 #  pyproject.toml
@@ -498,12 +498,12 @@ hello zeta
 
 [zxpy](https://github.com/tusharsadhwani/zxpy) is a tool for running shell commands inside Python.
 
-We will use the [Github CLI](https://cli.github.com/manual/) as a source of shell commands.
+We will use the [Github CLI](https://cli.github.com/manual/) as a source of shell commands - it is a nice way to get data about your code on Github. 
 
-The Github CLI is a nice way to get data about your code on Github - for example here we:
+Below we get all the issues for the mypy repository on Github:
 
 ```shell-session
-$ gh search issues --repo mypy --json title | jq > issues.json
+$ gh search issues --repo python/mypy --json title | jq > issues.json
 $ head -n 7 issues.json
 [
   {
@@ -514,7 +514,7 @@ $ head -n 7 issues.json
   },
 ```
 
-This JSON array (or list of dictionaries in Python) is data we want to work on in Python. We could read the `issues.json` file in Python - this would involve running the shell command and Python interpreter separatly.
+This JSON array (or list of dictionaries in Python) is data we want to work on in Python. We could read the `issues.json` file in Python - this would involve running the shell command and Python interpreter separately.
 
 With zxpy we can run the shell command right in Python - using the `~"shell-command"` syntax:
 
@@ -570,7 +570,7 @@ print('this will be printed with rich :clap:')
 
 ## Summary
 
-Our hypermodern Python toolbox is:
+Our Hypermodern Python toolbox is:
 
 - **Python 3.10** for better error messages,
 - **pyenv** & **pyenv-virtualenv** for managing Python versions and virtual environments,
