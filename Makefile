@@ -26,10 +26,10 @@ build: pull-static js-deps
 
 pull-static: ~/.aws/credentials
 	pip install -q poetry; poetry install
-	aws s3 sync s3://neuapp-$(STAGE)/neuapp/static neuapp/static
+	aws s3 sync s3://neuapp-$(STAGE)/neuapp/static neuapp/static --profile netlify
 
 push-static:
-	aws s3 sync neuapp/static s3://neuapp-$(STAGE)/neuapp/static
+	aws s3 sync neuapp/static s3://neuapp-$(STAGE)/neuapp/static --profile netlify
 
 infra:
 	export AWS_PROFILE=$(PROFILE); sls deploy -s $(STAGE)
