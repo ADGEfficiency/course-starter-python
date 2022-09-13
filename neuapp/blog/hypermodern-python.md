@@ -509,9 +509,7 @@ hello zeta
 
 ## Run Shell Commands in Python with zxpy
 
-[zxpy](https://github.com/tusharsadhwani/zxpy) is a tool for running shell commands inside Python.
-
-We will use the [Github CLI](https://cli.github.com/manual/) as a source of shell commands - it is a nice way to get data about your code on Github. 
+**[zxpy](https://github.com/tusharsadhwani/zxpy) is a tool for running shell commands inside Python**.  We will use the [Github CLI](https://cli.github.com/manual/) as a source of shell commands - it is a nice way to get data about your code on Github. 
 
 Below we get all the issues for the mypy repository on Github:
 
@@ -555,7 +553,7 @@ $ zxpy zxpy_eg.py
 
 ## Pretty Print with Rich
 
-[Rich](https://rich.readthedocs.io/en/stable/) is a tool for printing pretty text to a terminal - it's an alternative to the monotone terminal output of most Python programs.
+**[Rich](https://rich.readthedocs.io/en/stable/) is a tool for printing pretty text to a terminal** - it's an alternative to the monotone terminal output of most Python programs.
 
 ```shell-session
 import rich
