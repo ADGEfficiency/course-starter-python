@@ -6,7 +6,7 @@ slug: '/blog/hypermodern-python'
 type: post
 ---
 
-All Python developers are challenged by the size and velocity of Python's large & dynamic ecosystem.
+Every Python developer is challenged by the size and velocity of Python's large & dynamic ecosystem.
 
 <center>
   <img src="/hypermodern-python/a computer in the style of mc escher.png" width="80%" align="center">
@@ -16,7 +16,7 @@ All Python developers are challenged by the size and velocity of Python's large 
 
 From newbies finding their first workflow to senior developers keeping up with new packages, we all struggle to keep up with the intersection of the new and the useful in Python.
 
-This post cuts through the fog with a **Hypermodern Python toolbox**:
+**This post cuts through the fog with a *Hypermodern* Python toolbox**:
 
 - Python 3.10,
 - pyenv & pyenv-virtualenv,
@@ -32,7 +32,7 @@ This post cuts through the fog with a **Hypermodern Python toolbox**:
 
 ## Python 3.10
 
-Python 3.10 added better error messages - it's had a large positive impact on my Python development.
+Python 3.10 has added better error messages - it's had a large positive impact on my Python development.
 
 The code below has a mistake. We try to assign a value to the first element of `data`, mistakenly refering to the non-existent `datas` variable instead:
 
@@ -599,8 +599,8 @@ Our Hypermodern Python toolbox is:
 
 <br />
 
-Don't feel pressure to pick up each tool now - slowly integrating one or two tools over time is the way to go.
+Don't feel pressure to pick up each tool at the same time - slowly integrating one or two tools over time is the way to go.
 
 Thanks for reading!  
 
-Checkout other Python related posts on [pathlib versus os.path](https://datasciencesouth.com/blog/python-file-system) and [Pandas & Matplotlib for New Data Scientists](https://datasciencesouth.com/blog/python-libraries-new-data-scientists).
+Checkout our other Python related posts on [pathlib versus os.path](https://datasciencesouth.com/blog/python-file-system) and [Pandas & Matplotlib for New Data Scientists](https://datasciencesouth.com/blog/python-libraries-new-data-scientists).
