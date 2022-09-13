@@ -16,17 +16,7 @@ Every Python developer is challenged by the size and velocity of Python's large 
 
 From newbies finding their first workflow to senior developers keeping up with new packages, we all struggle to keep up with the intersection of the new and the useful in Python.
 
-**This post cuts through the fog with a *Hypermodern* Python toolbox**:
-
-- Python 3.10,
-- pyenv & pyenv-virtualenv,
-- Poetry,
-- Black and isort,
-- mypy,
-- pydantic,
-- Typer,
-- zxpy,
-- Rich.
+**This post cuts through the fog with a *Hypermodern* Python toolbox** - a suite of tools to manage Python, format code, ensure type safety and pretty print to your terminal.
 
 <br />
 
@@ -241,9 +231,9 @@ _Watch out for_ - Poetry has the ability to create it's own virtual environments
 
 ## Formatting with black & isort
 
-**[black](https://github.com/psf/black) & [isort](https://github.com/PyCQA/isort) are tools that format Python code** - they are alternatives to tools like autopep8.
+**[Black](https://github.com/psf/black) & [isort](https://github.com/PyCQA/isort) are tools that format Python code** - they are alternatives to tools like autopep8.
 
-One way to use black and isort is to run them from a terminal.  The code below in `bad_format.py` poorly formatted:
+One way to use Black and isort is to run them from a terminal.  The code below in `bad_format.py` poorly formatted:
 
 ```python
 #  bad_format.py
