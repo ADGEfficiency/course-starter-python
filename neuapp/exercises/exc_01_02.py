@@ -7,7 +7,6 @@ raw = pd.read_csv(
     "bp-stats-review-2021-consolidated-dataset-narrow-format.csv"
 )
 
-data = raw[["Country", "Year", "Region", "SubRegion", "Var", "Value"]]
-data = data[data["Var"].isin(["wind_twh", "solar_twh", "nuclear_twh", "pop"])]
-data = data[data["Region"] == "Asia Pacific"]
+cols = ["Country", "Year", "Region", "SubRegion", "Var", "Value"]
+data = raw[cols]
 data.head(3)

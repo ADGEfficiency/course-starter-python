@@ -1,9 +1,9 @@
 {
-  "courseId": "course-starter-python",
+  "courseId": "course-starter-data-science-south",
   "title": "Data Science South",
   "slogan": "A data professional education company",
   "description": "Data Science South is the start of something!",
-  "bio": "I'm Adam - I work as a Data Engineer at Gridcognition.",
+  "bio": "I'm Adam - I work as a Data Scientist at Orkestra Energy.",
   "siteUrl": "https://course-starter-python.netlify.com",
   "twitter": "spacy_io",
     "fonts": "IBM+Plex+Mono:500|IBM+Plex+Sans:700|Lato:400,400i,700,700i",
@@ -18,7 +18,7 @@
     "showProfileImage": true,
     "footerLinks": [
         { "text": "Built with ♥", "url": "https://github.com/ADGEfficiency/course-starter-python" },
-        { "text": "Follow on LinkedIn", "url": "https://www.linkedin.com/company/datasciencesouth" }
+        { "text": "LinkedIn", "url": "https://www.linkedin.com/company/datasciencesouth" }
     ],
     "theme": "#3a9cd0"
 }
