@@ -1,6 +1,6 @@
 ---
-title: Hypermodern Python Stack
-description: The 2022 edition of an ultra modern Python toolbox.
+title: Hypermodern Python Toolbox
+description: The 2022 edition of an ultra modern Python tech stack.
 date: 2022-09-04
 slug: '/blog/hypermodern-python'
 type: post
