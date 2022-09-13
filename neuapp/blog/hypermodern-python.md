@@ -566,7 +566,7 @@ rich.print(f" :wave: [bold blue]rich[/] [green]printing[/]\nuser {user}\n")
 ```
 
 <center>
-  <img src="/hypermodern-python/rich.png" width="60%" align="center">
+  <img src="/hypermodern-python/rich.png" width="50%" align="center">
   <br />
 </center>
 
@@ -578,7 +578,7 @@ print('this will be printed with rich :clap:')
 ```
 
 <center>
-  <img src="/hypermodern-python/rich2.png" width="60%" align="center">
+  <img src="/hypermodern-python/rich2.png" width="50%" align="center">
   <br />
 </center>
 
@@ -597,15 +597,9 @@ Our Hypermodern Python toolbox is:
 - **zxpy** for running shell commands inside Python,
 - **Rich** for pretty printing to the terminal.
 
-A collection of the tips shared in this post:
-
-- it's common to run formatters on file save or in continuous integration - consider adding a format on save to your text editor,
-- add mypy as an additional layer of testing to your test suite,
-- pydantic can generate Typescript types from Python pydantic types,
-- you can create nested CLI groups in Typer using commands and command groups.
-- f-strings in zxpy are written `~f"gh search issues --repo {repo}`.
-
 <br />
+
+Don't feel pressure to pick up each tool now - slowly integrating one or two tools over time is the way to go.
 
 Thanks for reading!  
 
