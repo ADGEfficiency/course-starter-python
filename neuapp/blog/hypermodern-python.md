@@ -6,35 +6,44 @@ slug: '/blog/hypermodern-python'
 type: post
 ---
 
-All Python developers are challenged by the size and velocity of the Python ecosystem.
+All Python developers are challenged by the size and velocity of Python's large & dynamic ecosystem.
 
-From newbies finding their first workflow to senior developers keeping up with new packages, we all struggle with Python's large & dynamic ecosystem.
+<center>
+  <img src="/hypermodern-python/a computer in the style of mc escher.png" width="80%" align="center">
+  <figcaption>A computer in the style of M.C Escher - created with <a href="https://github.com/CompVis/stable-diffusion">Stable Diffusion</a>.</figcaption>
+  <br />
+</center>
 
-This post cuts through the fog with a Hypermodern Python toolbox:
+From newbies finding their first workflow to senior developers keeping up with new packages, we all struggle to keep up with the intersection of the new and the useful in Python.
 
-- **Python 3.10** for better error messages,
-- **pyenv** & **pyenv-virtualenv** for managing Python versions and virtual environments,
-- **Poetry** for managing Python dependencies,
-- **Black** and **isort** for formatting Python code,
-- **mypy** for static type checking,
-- **pydantic** for organizing & validating data,
-- **Typer** for CLIs,
-- **zxpy** for running shell commands inside Python,
-- **rich** for pretty printing to the terminal.
+This post cuts through the fog with a **Hypermodern Python toolbox**:
+
+- Python 3.10,
+- pyenv & pyenv-virtualenv,
+- Poetry,
+- Black and isort,
+- mypy,
+- pydantic,
+- Typer,
+- zxpy,
+- Rich.
+
+<br />
 
 ## Python 3.10
 
 Python 3.10 added better error messages - it's had a large positive impact on my Python development.
 
-The code below has a mistake - we attempt to assign a value to the first element of `data`, mistakenly refering to the non-existent `datas` variable instead:
+The code below has a mistake. We try to assign a value to the first element of `data`, mistakenly refering to the non-existent `datas` variable instead:
 
 ```python
 #  mistake.py
 data = [1, 4, 8]
+#  datas does not exist!
 datas[0] = 2
 ```
 
-Running this broken code with older versions of Python, we get an error traceback that points out that the variable `datas` doesn't exist:
+Running this broken code with older versions of Python, we get an error traceback that helpfully points out the problem - that the variable `datas` doesn't exist:
 
 ```shell
 $ python --version
@@ -60,22 +69,26 @@ Traceback (most recent call last):
 NameError: name 'datas' is not defined. Did you mean: 'data'?
 ```
 
-This may seem like a minor improvement - yet I miss it when working with older versions of Python.
+I miss this helpful diagnosis each time I work with older versions of Python.
 
 ## Versions & Virtual Environments with pyenv & pyenv-virtualenv
 
-The hardest thing about learning Python is learning how to install & manage it. Even senior developers can struggle with it, especially if Python is not their main language.
+Installing & managing Python is the hardest thing about learning it. Even senior developers can struggle with it, especially if Python is not their main language.
 
-Reliable workflows for creating & deleting virtual environments are a sign of an experienced Python developer.  
+<center>
+  <img src="/hypermodern-python/python_environment_xkcd.png" width="60%" align="center">
+  <figcaption><a href="https://xkcd.com/1987">The xkcd classic commentary on the complex Python ecosystem</a></figcaption>
+  <br />
+</center>
 
-Working with Python requires being able to easily work:
+Reliable workflows for creating & deleting virtual environments are a sign of an experienced Python developer. Working with Python requires being able to easily work:
 
 1. with different versions of Python,
 2. in different Python virtual environments.  
 
 <br />
 
-[pyenv](https://github.com/pyenv/pyenv) is a tool for managing different versions of Python. It's an alternative to using miniconda or installing Python from a downloaded installer.
+**[pyenv](https://github.com/pyenv/pyenv) is a tool for managing different versions of Python**. It's an alternative to using miniconda or installing Python from a downloaded installer.
 
 pyenv can be used to manage many versions of Python - below three versions of Python are installed & managed by pyenv:
 
@@ -86,7 +99,7 @@ $ pyenv versions
 3.10.5
 ```
 
-Installing a new version of Python is as simple as `pyenv install`:
+Installing a new version of Python is as simple as `$ pyenv install`:
 
 ```shell-session
 $ pyenv install 3.10.6
@@ -101,7 +114,7 @@ Installed Python-3.10.6 to /Users/adam/.pyenv/versions/3.10.6
 
 If you are having an trouble getting pyenv setup, take a look at this [installer script for Ubuntu](https://github.com/ADGEfficiency/dotfiles/blob/master/ubuntu/pyenv), [installer script for MacOS](https://github.com/ADGEfficiency/dotfiles/blob/master/macos/pyenv) and [compiler flags](https://github.com/ADGEfficiency/dotfiles/blob/master/macos/pyenv-flags).
 
-After installing this version of Python, we can now create a virtual environment using this Python version.  [pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv) is a tool for managing virtual environments - it's an alternative to venv or miniconda.
+After installing this version of Python, we can now create a virtual environment using this Python version.  **[pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv) is a tool for managing virtual environments in Python** - it's an alternative to venv or miniconda.
 
 No surprises that pyenv-virtualenv it plays well with our pyenv installation of 3.10.6 above:
 
@@ -120,25 +133,25 @@ $ pyenv versions
 3.10.6/envs/default
 ```
 
-_Tip_ - create a `.python-version` file to automatically switch to a virtual env when you enter a directory.
+_Tip_ - create a `.python-version` file to automatically switch to a virtual environment when you enter a directory.
 
 ## Python Package Management with Poetry
 
-Once you have a fresh Python setup in a virtual environment, often you will next install additional Python packages needed for your work.
+Once you have a fresh Python setup in a virtual environment, you will often want to both work with external Python packages (like numpy or pandas) and to create your own Python package to organize your own source code.
 
-[Poetry](https://python-poetry.org/docs/basic-usage/) is a tool for managing Python dependencies - it's an alternative to pip (the Python package manager than comes with Python).
+**[Poetry](https://python-poetry.org/docs/basic-usage/) is a tool for managing Python dependencies and packages** - it's an alternative to pip (the Python package manager than comes with Python).
 
 Pip uses two files to manage a Python package:
 
 - `requirements.txt` - a list of Python dependencies,
-- `setup.py` - a Python script that describes the package.
+- `setup.py` - a Python script that describes our package.
 
 <br />
 
 Poetry uses two different files:
 
 - `pyproject.toml` to describe our Python package,
-- `poetry.lock` to define and lock all dependencies - similar to `pip freeze`.
+- `poetry.lock` to define and lock all dependencies - similar to the output of `$ pip freeze`.
 
 <br />
 
@@ -146,12 +159,12 @@ These two files are both often generated automatically - `poetry.lock` is only e
 
 Poetry has two ways to start a new project:
 
-- `poetry new` - start a fresh project,
-- `poetry init` - in an existing project.
+- `poetry new` - start a fresh project (will create a folder with Poetry files, README and package folder),
+- `poetry init` - in an existing project - only Poetry files.
 
 <br />
 
-We can create a `pyproject.toml` for a project in an interactive way by first installing Poetry with pip, then running `poetry init` to create a `pyproject.toml`:
+We can create a `pyproject.toml` for a project in an interactive way by first installing Poetry with pip, then running `$ poetry init` to create a `pyproject.toml`:
 
 ```shell-session
 $ pip install -q poetry; poetry init
@@ -228,11 +241,9 @@ _Watch out for_ - Poetry has the ability to create it's own virtual environments
 
 ## Formatting with black & isort
 
-[black](https://github.com/psf/black) & [isort](https://github.com/PyCQA/isort) are tools for automatically formatting Python code - they are alternatives to tools like autopep8.
+**[black](https://github.com/psf/black) & [isort](https://github.com/PyCQA/isort) are tools that format Python code** - they are alternatives to tools like autopep8.
 
-One way to use black and isort is to run them from a terminal.
-
-The code below is in `bad_format.py` poorly formatted:
+One way to use black and isort is to run them from a terminal.  The code below in `bad_format.py` poorly formatted:
 
 ```python
 #  bad_format.py
@@ -293,11 +304,11 @@ _Tip_ - it's common to run these formatters on file save or in continuous integr
 
 ## Static Type Checking with mypy
 
-[mypy](http://www.mypy-lang.org/) is a tool for enforcing type safety in Python code - it's an alternative to type declarations remaining as unexecuted documentation.
+**[mypy](http://www.mypy-lang.org/) is a tool for enforcing type safety in Python** - it's an alternative to type declarations remaining as only unexecuted documentation.
 
-In some parts of the Python world, Python has undergone a transition similar to the Javascript to Typescript transition - type safe Python code is now the standard. Running mypy on Python codebases has become a sign of quality and pride for modern Python developers.
+In some parts of the Python world, Python has undergone a transition similar to the Javascript to Typescript transition - **type safe Python code is now the standard**. Using mypy is a sign of quality and pride for modern Python developers.
 
-The code below has an error - we attempt to divide a `str` by `10`:
+The code below has an error - we attempt to divide a string by `10`:
 
 ```python
 def process(user):
@@ -318,8 +329,8 @@ Found 2 errors in 1 file (checked 1 source file)
 
 These first errors are because our Python code has zero typing - let's add two type annotations:
 
-- `user: dict[str,str]` - `user` is a dictionary with strings as keys and values,
-- `-> None:` - the `process` function returns None.
+1. `user: dict[str,str]` - `user` is a dictionary with strings as keys and values,
+2. `-> None:` - the `process` function returns None.
 
 <br />
 
@@ -342,11 +353,13 @@ Found 1 error in 1 file (checked 1 source file)
 
 This is a test we can do without writing any specific test cases - very cool.
 
-Static type checking becomes another layer of testing, that will catch some bugs that many unit test suites won't.  Static typing will check more paths than a single unit test often does - catching edge cases that would otherwise only occur in production.
+Static type checking is layer of testing, that will catch some bugs that many unit test suites won't.  Static typing will check more paths than a single unit test often does - catching edge cases that would otherwise only occur in production.
+
+*Tip* - add mypy as an additional layer of testing to your test suite.
 
 ## Organize data with pydantic
 
-[pydantic](https://pydantic-docs.helpmanual.io/) is a tool for organizing and validating data in Python - it's an alternative to using dictionaries or dataclasses.
+**[pydantic](https://pydantic-docs.helpmanual.io/) is a tool for organizing and validating data in Python** - it's an alternative to using dictionaries or dataclasses.
 
 pydantic is part of Python's typing revolution - pydantic's ability to create custom types makes writing typed Python a joy.
 
@@ -422,7 +435,7 @@ _Tip_ - you can generate Typescript types from pydantic models - making it possi
 
 ## Create CLIs with Typer
 
-[Typer](https://typer.tiangolo.com/) is a tool for building command line interfaces (CLIs) using type hints - it's an alternative to argparse.
+**[Typer](https://typer.tiangolo.com/) is a tool for building command line interfaces (CLIs) using type hints in Python** - it's an alternative to argparse.
 
 We can build a Python CLI with Poetry and Typer by first creating a Python package with Poetry, adding `typer` as a dependency).
 
@@ -447,10 +460,8 @@ Then add a Python file `./general/cli.py` with our Typer CLI:
 #  general/cli.py
 import typer
 
-
 def main(name: str) -> None:
     print(f"Hello {name}")
-
 
 if __name__ == "__main__":
     typer.run(main)
@@ -494,6 +505,8 @@ $ poetry run general-cli zeta
 hello zeta
 ```
 
+*Tip* - you can create nested CLI groups using commands and command groups.
+
 ## Run Shell Commands in Python with zxpy
 
 [zxpy](https://github.com/tusharsadhwani/zxpy) is a tool for running shell commands inside Python.
@@ -528,6 +541,8 @@ print(f" first {issues[0]}")
 print(" last {issues[-1]}")
 ```
 
+We can then run this script using the zxpy interperter:
+
 ```shell-session
 $ zxpy zxpy_eg.py
 30 issues
@@ -551,7 +566,7 @@ rich.print(f" :wave: [bold blue]rich[/] [green]printing[/]\nuser {user}\n")
 ```
 
 <center>
-  <img src="/hypermodern-python/rich.png" width="80%" align="center">
+  <img src="/hypermodern-python/rich.png" width="60%" align="center">
   <br />
 </center>
 
@@ -563,7 +578,7 @@ print('this will be printed with rich :clap:')
 ```
 
 <center>
-  <img src="/hypermodern-python/rich2.png" width="80%" align="center">
+  <img src="/hypermodern-python/rich2.png" width="60%" align="center">
   <br />
 </center>
 
@@ -580,8 +595,18 @@ Our Hypermodern Python toolbox is:
 - **pydantic** for organizing & validating data,
 - **Typer** for CLIs,
 - **zxpy** for running shell commands inside Python,
-- **rich** for pretty printing to the terminal.
+- **Rich** for pretty printing to the terminal.
 
----
+A collection of the tips shared in this post:
+
+- it's common to run formatters on file save or in continuous integration - consider adding a format on save to your text editor,
+- add mypy as an additional layer of testing to your test suite,
+- pydantic can generate Typescript types from Python pydantic types,
+- you can create nested CLI groups in Typer using commands and command groups.
+- f-strings in zxpy are written `~f"gh search issues --repo {repo}`.
+
+<br />
+
+Thanks for reading!  
 
 Checkout other Python related posts on [pathlib versus os.path](https://datasciencesouth.com/blog/python-file-system) and [Pandas & Matplotlib for New Data Scientists](https://datasciencesouth.com/blog/python-libraries-new-data-scientists).
