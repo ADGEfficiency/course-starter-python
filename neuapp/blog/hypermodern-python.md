@@ -14,15 +14,15 @@ Every Python developer is challenged by the size and velocity of Python's large 
   <br />
 </center>
 
-From newbies finding their first workflow to senior developers keeping up with new packages, we all struggle to keep up with the intersection of the new and the useful in Python.
+From newbies finding their first workflow to senior developers keeping up with new packages and trends, everyone struggles to keep up with the intersection of *the new and the useful* with Python.
 
-**This post cuts through the fog with a *Hypermodern* Python toolbox** - a suite of tools to manage Python, format code, ensure type safety and pretty print to your terminal.
+**This post cuts through the fog with a *Hypermodern* Python toolbox** - a collection of the latest tools that are becoming standard for many Python developers.
 
 <br />
 
 ## Python 3.10
 
-Python 3.10 has added better error messages - it's had a large positive impact on my Python development.
+**Python 3.10 added better error messages** - it's had a large positive impact on my Python development.
 
 The code below has a mistake. We try to assign a value to the first element of `data`, mistakenly refering to the non-existent `datas` variable instead:
 
@@ -59,11 +59,11 @@ Traceback (most recent call last):
 NameError: name 'datas' is not defined. Did you mean: 'data'?
 ```
 
-I miss this helpful diagnosis each time I work with older versions of Python.
+It may not seem like a major thing - yet I miss this helpful diagnosis each time I work with older versions of Python.
 
 ## Versions & Virtual Environments with pyenv & pyenv-virtualenv
 
-Installing & managing Python is the hardest thing about learning it. Even senior developers can struggle with it, especially if Python is not their main language.
+The hardest thing about learning Python is learning to install & manage Python.  Even senior developers can struggle with this, especially if Python is not their main language.
 
 <center>
   <img src="/hypermodern-python/python_environment_xkcd.png" width="60%" align="center">
@@ -71,7 +71,9 @@ Installing & managing Python is the hardest thing about learning it. Even senior
   <br />
 </center>
 
-Reliable workflows for creating & deleting virtual environments are a sign of an experienced Python developer. Working with Python requires being able to easily work:
+Reliable workflows for creating & deleting virtual environments are a sign of an experienced Python developer. 
+
+Working with Python requires being able to easily work:
 
 1. with different versions of Python,
 2. in different Python virtual environments.  
@@ -106,13 +108,13 @@ If you are having an trouble getting pyenv setup, take a look at this [installer
 
 After installing this version of Python, we can now create a virtual environment using this Python version.  **[pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv) is a tool for managing virtual environments in Python** - it's an alternative to venv or miniconda.
 
-No surprises that pyenv-virtualenv it plays well with our pyenv installation of 3.10.6 above:
+No surprises that pyenv-virtualenv it plays well with our pyenv installation of 3.10.6 above - we can create a new virtual environment with `$ pyenv virtualenv {version} {name}` - below we create a 3.10.6 environment called `default`:
 
 ```shell-session
 $ pyenv virtualenv 3.10.6 default
 ```
 
-We now have a new virtual environment - using the exact version of Python we need:
+We now have a new virtual environment - using the version of Python we need:
 
 ```shell-session
 $ pyenv versions
@@ -127,7 +129,7 @@ _Tip_ - create a `.python-version` file to automatically switch to a virtual env
 
 ## Python Package Management with Poetry
 
-Once you have a fresh Python setup in a virtual environment, you will often want to both work with external Python packages (like numpy or pandas) and to create your own Python package to organize your own source code.
+Once you have a fresh Python setup in a virtual environment, you will often want to both work with external Python packages (like numpy or pandas) or to create your own Python package to organize your own source code.
 
 **[Poetry](https://python-poetry.org/docs/basic-usage/) is a tool for managing Python dependencies and packages** - it's an alternative to pip (the Python package manager than comes with Python).
 
@@ -138,19 +140,19 @@ Pip uses two files to manage a Python package:
 
 <br />
 
-Poetry uses two different files:
+Poetry instead uses two different files:
 
 - `pyproject.toml` to describe our Python package,
 - `poetry.lock` to define and lock all dependencies - similar to the output of `$ pip freeze`.
 
 <br />
 
-These two files are both often generated automatically - `poetry.lock` is only ever generated automatically.
+These two files are both often generated automatically - `poetry.lock` is only ever generated automatically.  There is not a one-to-one mapping between the files used by pip and Poetry.
 
 Poetry has two ways to start a new project:
 
-- `poetry new` - start a fresh project (will create a folder with Poetry files, README and package folder),
-- `poetry init` - in an existing project - only Poetry files.
+- `$ poetry new` - start a fresh project (will create a folder with Poetry files, README and package folder),
+- `$ poetry init` - in an existing project - only Poetry files.
 
 <br />
 
@@ -233,7 +235,7 @@ _Watch out for_ - Poetry has the ability to create it's own virtual environments
 
 **[Black](https://github.com/psf/black) & [isort](https://github.com/PyCQA/isort) are tools that format Python code** - they are alternatives to tools like autopep8.
 
-One way to use Black and isort is to run them from a terminal.  The code below in `bad_format.py` poorly formatted:
+One way to use Black and isort is to run them from a terminal.  The code below in `bad_format.py` is poorly formatted:
 
 ```python
 #  bad_format.py
@@ -241,7 +243,7 @@ data=[1, 4, 8]
 datas[0] = 2
 ```
 
-We can run black from a terminal, pointing at `bad_format.py`:
+We can run Black from a terminal, pointing at `bad_format.py`:
 
 ```shell
 $ black bad_format.py
@@ -259,7 +261,7 @@ data = [1, 4, 8]
 datas[0] = 2
 ```
 
-The code below has imports that are out of order alphabetically and grouped incorrectly:
+The code below in `bad_imports.py` has imports that are out of order alphabetically and grouped incorrectly:
 
 ```python
 #  bad_imports.py
@@ -277,7 +279,7 @@ $ isort bad_imports.py
 Fixing /Users/adam/dss/notes/content/ideas/temp/test.py
 ```
 
-Our fixed file:
+Our fixed file has nicely formatted imports:
 
 ```python
 #  bad_imports.py
@@ -296,11 +298,12 @@ _Tip_ - it's common to run these formatters on file save or in continuous integr
 
 **[mypy](http://www.mypy-lang.org/) is a tool for enforcing type safety in Python** - it's an alternative to type declarations remaining as only unexecuted documentation.
 
-In some parts of the Python world, Python has undergone a transition similar to the Javascript to Typescript transition - **type safe Python code is now the standard**. Using mypy is a sign of quality and pride for modern Python developers.
+For many developers, Python has undergone a similar transition to the Javascript to Typescript transition - **type safe Python code is now the standard**. Using mypy is a sign of quality and pride for modern Python developers.
 
-The code below has an error - we attempt to divide a string by `10`:
+The code below in `mypy_error.py` has an error - we attempt to divide a string by `10`:
 
 ```python
+#  mypy_error.py
 def process(user):
     user['name'] / 10
 
@@ -333,7 +336,7 @@ user = {'name': 'alpha'}
 process(user)
 ```
 
-Running mypy again, it points out the error in our code:
+Running mypy on `mypy_intermediate.py`, mypy points out the error in our code:
 
 ```shell-sesson
 $ mypy --strict mypy_intermediate.py
@@ -341,7 +344,7 @@ mypy_fixed.py:2: error: Unsupported operand types for / ("str" and "int")
 Found 1 error in 1 file (checked 1 source file)
 ```
 
-This is a test we can do without writing any specific test cases - very cool.
+This is a test we can run without writing any specific test logic - very cool.
 
 Static type checking is layer of testing, that will catch some bugs that many unit test suites won't.  Static typing will check more paths than a single unit test often does - catching edge cases that would otherwise only occur in production.
 
@@ -410,7 +413,7 @@ users = [
 [print(user) for user in users]
 ```
 
-Running the code above, our pydantic model has rejected one of our ids:
+Running the code above, our pydantic model has rejected one of our ids - our `beta` user still has an `id=None`:
 
 ```shell-session
 $ python pydantic_eg.py
@@ -421,6 +424,8 @@ name='beta' id=None
 name='omega' id=None
 ```
 
+These pydantic types can become the primitive data structures in your Python programs (instead of dictionaries) - making it eaiser for other developers to understand what is going on.
+
 _Tip_ - you can generate Typescript types from pydantic models - making it possible to share the same data structures with your Typescript frontend and Python backend.
 
 ## Create CLIs with Typer
@@ -429,7 +434,7 @@ _Tip_ - you can generate Typescript types from pydantic models - making it possi
 
 We can build a Python CLI with Poetry and Typer by first creating a Python package with Poetry, adding `typer` as a dependency).
 
-Here we use `poetry new`, which will create more files & folders than `poetry init`:
+Here we use `$ poetry new`, which will create more files & folders than `$ poetry init`:
 
 ```shell-session
 $ poetry new general

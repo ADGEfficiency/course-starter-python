@@ -35,7 +35,7 @@ export default ({ data }) => {
                   Data Science South is a collection of courses and blog posts for data professionals of the three main breeds - data analysts, scientists and engineers.
                 </p>
                 <p>
-                  If you want to stay tuned as more are created -<strong> <Link to="https://www.linkedin.com/company/datasciencesouth">follow on LinkedIn!</Link></strong>
+                  If you want to stay tuned as more are created -<strong> <Link to="https://www.linkedin.com/company/datasciencesouth">stay tuned for more on LinkedIn!</Link></strong>
                 </p>
                 </div>
 
