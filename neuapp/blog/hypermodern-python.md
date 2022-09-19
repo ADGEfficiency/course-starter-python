@@ -108,13 +108,15 @@ If you are having an trouble getting pyenv setup, take a look at this [installer
 
 After installing this version of Python, we can now create a virtual environment using this Python version.  **[pyenv-virtualenv](https://github.com/pyenv/pyenv-virtualenv) is a tool for managing virtual environments in Python** - it's an alternative to venv or miniconda.
 
-No surprises that pyenv-virtualenv it plays well with our pyenv installation of 3.10.6 above - we can create a new virtual environment with `$ pyenv virtualenv {version} {name}` - below we create a 3.10.6 environment called `default`:
+No surprises that pyenv-virtualenv it plays well with our pyenv installation of 3.10.6 above - we can create a new virtual environment with `$ pyenv virtualenv {version} {name}`. 
+
+Below we create a 3.10.6 Python virtual environment called `default`:
 
 ```shell-session
 $ pyenv virtualenv 3.10.6 default
 ```
 
-We now have a new virtual environment - using the version of Python we need:
+We now have a new virtual environment - using the version of Python we want:
 
 ```shell-session
 $ pyenv versions
@@ -563,7 +565,7 @@ rich.print(f" :wave: [bold blue]rich[/] [green]printing[/]\nuser {user}\n")
   <br />
 </center>
 
-If you are happy with Rich you can simplify your code with:
+If you are happy with Rich you can simplify your code by replacing the built-in print with the Rich print:
 
 ```python
 from rich import print
